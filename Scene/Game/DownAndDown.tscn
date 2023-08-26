@@ -1,0 +1,200 @@
+[gd_scene load_steps=25 format=3 uid="uid://dfmpj8thxwqp"]
+
+[ext_resource type="Script" path="res://Scene/Game/DownAndDown/Player.gd" id="1_4qspn"]
+[ext_resource type="Texture2D" uid="uid://cwwytfgak2xub" path="res://Assets/Texture/Game/Background/Gray.png" id="1_8d8um"]
+[ext_resource type="Texture2D" uid="uid://ygvilwxn1smb" path="res://Assets/Texture/Game/Main Characters/Pink Man/Idle (32x32).png" id="2_7c5wb"]
+[ext_resource type="Script" path="res://Script/Manager.gd" id="4_bet5h"]
+[ext_resource type="Script" path="res://Script/Game/DownAndDown/Boards.gd" id="4_hkpl4"]
+[ext_resource type="PackedScene" uid="uid://dfy8qtsvwdwem" path="res://Scene/Game/DownAndDown/OneWayBoard.tscn" id="7_ol3wo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl8st"]
+atlas = ExtResource("2_7c5wb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j40yl"]
+atlas = ExtResource("2_7c5wb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvdcn"]
+atlas = ExtResource("2_7c5wb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52ivq"]
+atlas = ExtResource("2_7c5wb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c75qq"]
+atlas = ExtResource("2_7c5wb")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5cu8"]
+atlas = ExtResource("2_7c5wb")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_melm0"]
+atlas = ExtResource("2_7c5wb")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe2p2"]
+atlas = ExtResource("2_7c5wb")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mfov"]
+atlas = ExtResource("2_7c5wb")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdxtx"]
+atlas = ExtResource("2_7c5wb")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g52hu"]
+atlas = ExtResource("2_7c5wb")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tj788"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bl8st")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j40yl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvdcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52ivq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c75qq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5cu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_melm0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oe2p2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mfov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdxtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g52hu")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vj7yb"]
+size = Vector2(35, 50)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wn8wg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vseoy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ol4hq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gnhg"]
+bg_color = Color(0.6, 0.6, 0.6, 0.0784314)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c45ku"]
+size = Vector2(2125, 212.5)
+
+[node name="DownAndDown" type="Node2D"]
+scale = Vector2(0.4, 0.4)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(890, 352.5)
+scale = Vector2(2, 2)
+script = ExtResource("1_4qspn")
+
+[node name="Icon" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 3
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_tj788")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_vj7yb")
+
+[node name="Control" type="Control" parent="."]
+z_index = -1
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_8d8um")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wn8wg")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vseoy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ol4hq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2gnhg")
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Boards" type="Node2D" parent="."]
+script = ExtResource("4_hkpl4")
+
+[node name="BoardsTimer" type="Timer" parent="Boards"]
+
+[node name="OneWayBoard" parent="Boards" instance=ExtResource("7_ol3wo")]
+position = Vector2(892.5, 465)
+
+[node name="Edge" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Edge"]
+position = Vector2(932.5, 1245)
+shape = SubResource("RectangleShape2D_c45ku")
+
+[node name="Manager" type="Node" parent="."]
+script = ExtResource("4_bet5h")

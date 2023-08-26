@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmadhyq6kwqhy"]
+
+[ext_resource type="Texture2D" uid="uid://bmyr31fu4qrlu" path="res://Assets/Texture/Game/Background/Green.png" id="1_155yt"]
+[ext_resource type="Theme" uid="uid://j2wqtopwadpw" path="res://Assets/Theme/Normal.tres" id="1_b3ksj"]
+[ext_resource type="Script" path="res://Script/UI/Start.gd" id="2_ixsck"]
+[ext_resource type="LabelSettings" uid="uid://d15iwulm6e4mf" path="res://Assets/LableSetting/Title.tres" id="3_osrty"]
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_b3ksj")
+script = ExtResource("2_ixsck")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_155yt")
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Content" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/Content"]
+layout_mode = 2
+text = "三个王国Brain"
+label_settings = ExtResource("3_osrty")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Content"]
+layout_mode = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_right = 400
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Content/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="StartGame" type="Button" parent="MarginContainer/Content/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "开始游戏"
+
+[node name="Option" type="Button" parent="MarginContainer/Content/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "设置"
+
+[node name="Quit" type="Button" parent="MarginContainer/Content/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "退出"

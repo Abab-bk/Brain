@@ -1,0 +1,117 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfpmkhp5yk5oe"]
+
+[ext_resource type="Script" path="res://Script/Game/World.gd" id="1_tgmst"]
+[ext_resource type="PackedScene" uid="uid://bpklbmnaoxp3q" path="res://Scene/Game/PushButton.tscn" id="1_xg2i7"]
+[ext_resource type="LabelSettings" uid="uid://d15iwulm6e4mf" path="res://Assets/LableSetting/Title.tres" id="2_2s3g2"]
+[ext_resource type="PackedScene" uid="uid://c7ndumnelkfmm" path="res://Scene/Game/Chrome.tscn" id="2_g5vy6"]
+[ext_resource type="Theme" uid="uid://j2wqtopwadpw" path="res://Assets/Theme/Normal.tres" id="2_gf11l"]
+[ext_resource type="PackedScene" uid="uid://co81n6q1mdwjv" path="res://Scene/Game/FlappyBrid.tscn" id="3_8s4u1"]
+[ext_resource type="Script" path="res://Script/UI/UI.gd" id="5_6u474"]
+[ext_resource type="Texture2D" uid="uid://5brrh320anir" path="res://Assets/Texture/Game/Background/Brown.png" id="6_q46e7"]
+[ext_resource type="AudioStream" uid="uid://mpkorrheumtx" path="res://Assets/Music/life_is_full_of_joy.wav" id="10_1eob6"]
+
+[node name="World" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_gf11l")
+script = ExtResource("1_tgmst")
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("5_6u474")
+
+[node name="UI" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_gf11l")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 40
+
+[node name="Point" type="Label" parent="UI/UI/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "得分：888"
+label_settings = ExtResource("2_2s3g2")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 60
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="Control" type="Control" parent="MarginContainer/CenterContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(768, 432)
+layout_mode = 2
+
+[node name="PushButton" parent="MarginContainer/CenterContainer/GridContainer/Control" instance=ExtResource("1_xg2i7")]
+
+[node name="Control2" type="Control" parent="MarginContainer/CenterContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(768, 432)
+layout_mode = 2
+
+[node name="Chrome" parent="MarginContainer/CenterContainer/GridContainer/Control2" instance=ExtResource("2_g5vy6")]
+
+[node name="Control3" type="Control" parent="MarginContainer/CenterContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(768, 432)
+layout_mode = 2
+
+[node name="FlappyBrid" parent="MarginContainer/CenterContainer/GridContainer/Control3" instance=ExtResource("3_8s4u1")]
+
+[node name="Control4" type="Control" parent="MarginContainer/CenterContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(768, 432)
+layout_mode = 2
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_q46e7")
+stretch_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
+anchor_mode = 0
+position_smoothing_enabled = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_1eob6")
+autoplay = true

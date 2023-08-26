@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlwe86udkjr15"]
+
+[ext_resource type="Script" path="res://Script/Game/PingPong/PingPong.gd" id="1_dmplb"]
+[ext_resource type="Texture2D" uid="uid://cje7ej4vkvbrl" path="res://icon.svg" id="1_jxkfx"]
+[ext_resource type="Script" path="res://Script/Game/PingPong/PingPongPlayer.gd" id="2_6j4mc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sa0nc"]
+size = Vector2(125, 125)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5qmsr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mvcga"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6f7uu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugchs"]
+bg_color = Color(0.6, 0.6, 0.6, 0.0784314)
+
+[node name="PingPong" type="Node2D"]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_dmplb")
+
+[node name="PingPongPlayer" type="RigidBody2D" parent="."]
+position = Vector2(145, 257.5)
+script = ExtResource("2_6j4mc")
+
+[node name="Icon" type="Sprite2D" parent="PingPongPlayer"]
+texture = ExtResource("1_jxkfx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PingPongPlayer"]
+shape = SubResource("RectangleShape2D_sa0nc")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5qmsr")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mvcga")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6f7uu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ugchs")
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]

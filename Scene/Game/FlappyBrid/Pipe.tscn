@@ -1,0 +1,216 @@
+[gd_scene load_steps=16 format=3 uid="uid://dc1wrpx255566"]
+
+[ext_resource type="Script" path="res://Script/Game/FlappyBrid/Pipe.gd" id="1_imxl7"]
+[ext_resource type="Texture2D" uid="uid://ce451qlvn74w5" path="res://Assets/Texture/Game/Traps/Saw/On (38x38).png" id="2_ljtfq"]
+[ext_resource type="Script" path="res://Script/Manager.gd" id="3_bw2p7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6too6"]
+atlas = ExtResource("2_ljtfq")
+region = Rect2(0, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frahq"]
+atlas = ExtResource("2_ljtfq")
+region = Rect2(38, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov4fc"]
+atlas = ExtResource("2_ljtfq")
+region = Rect2(76, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1hom"]
+atlas = ExtResource("2_ljtfq")
+region = Rect2(114, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os3ul"]
+atlas = ExtResource("2_ljtfq")
+region = Rect2(152, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b71t"]
+atlas = ExtResource("2_ljtfq")
+region = Rect2(190, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy466"]
+atlas = ExtResource("2_ljtfq")
+region = Rect2(228, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2asd"]
+atlas = ExtResource("2_ljtfq")
+region = Rect2(266, 0, 38, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dwsgm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6too6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frahq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov4fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1hom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os3ul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b71t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy466")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2asd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebh8r"]
+size = Vector2(117.106, 125.44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ejrq"]
+size = Vector2(111.66, 126.08)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rvxu"]
+size = Vector2(52, 274)
+
+[node name="Pipe" type="Node2D"]
+script = ExtResource("1_imxl7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -193)
+scale = Vector2(2.17, 2.17)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.684119
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(0, -38.2488)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.467408
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(0, -78.341)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.467408
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(0, -118.433)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.467408
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(0, -158.064)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.467408
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(0, -199.078)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.467408
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(0, -238.71)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.467408
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(0, -279.263)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.467408
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(0, -320.276)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.467408
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 885)
+scale = Vector2(2.17, 2.17)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.867253
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="AnimatedSprite2D2"]
+position = Vector2(0, -38.2488)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.467408
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="AnimatedSprite2D2"]
+position = Vector2(0, -78.341)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.467408
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="AnimatedSprite2D2"]
+position = Vector2(0, -118.433)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.467408
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="AnimatedSprite2D2"]
+position = Vector2(0, -158.064)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.467408
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="AnimatedSprite2D2"]
+position = Vector2(0, -199.078)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.467408
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="AnimatedSprite2D2"]
+position = Vector2(0, -238.71)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.467408
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="AnimatedSprite2D2"]
+position = Vector2(0, -279.263)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.467408
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="AnimatedSprite2D2"]
+position = Vector2(0, -320.276)
+sprite_frames = SubResource("SpriteFrames_dwsgm")
+autoplay = "default"
+frame_progress = 0.467408
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+position = Vector2(0, -508)
+scale = Vector2(0.734375, 5.76563)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ebh8r")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Node2D"]
+position = Vector2(0, 576)
+scale = Vector2(0.734375, 6.79688)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_8ejrq")
+
+[node name="Score" type="Area2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Score"]
+position = Vector2(74, 0)
+shape = SubResource("RectangleShape2D_2rvxu")
+
+[node name="Manager" type="Node" parent="."]
+script = ExtResource("3_bw2p7")

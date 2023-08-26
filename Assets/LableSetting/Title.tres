@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://d15iwulm6e4mf"]
+
+[ext_resource type="FontFile" uid="uid://c81kkj37sh72r" path="res://Assets/Fonts/SourceHanSansCN-Bold.otf" id="1_thdj1"]
+
+[resource]
+font = ExtResource("1_thdj1")
+font_size = 50
+shadow_color = Color(0.976471, 0.321569, 0.113725, 1)
+shadow_offset = Vector2(0, 2)

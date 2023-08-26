@@ -1,0 +1,189 @@
+[gd_scene load_steps=13 format=3 uid="uid://bpklbmnaoxp3q"]
+
+[ext_resource type="Script" path="res://Script/Game/PushButton.gd" id="1_dlqby"]
+[ext_resource type="Texture2D" uid="uid://cje7ej4vkvbrl" path="res://icon.svg" id="1_qygar"]
+[ext_resource type="Texture2D" uid="uid://cegg2q4upi161" path="res://Assets/Texture/Game/Background/Blue.png" id="3_5xmbr"]
+[ext_resource type="Theme" uid="uid://j2wqtopwadpw" path="res://Assets/Theme/Normal.tres" id="3_eqb88"]
+[ext_resource type="Script" path="res://Script/Manager.gd" id="3_no0cf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5qmsr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mvcga"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6f7uu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugchs"]
+bg_color = Color(0.6, 0.6, 0.6, 0.0784314)
+
+[sub_resource type="Animation" id="Animation_10lqo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7.15625, 2.22656)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(969, 891.75)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Icon:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(953, 499)]
+}
+
+[sub_resource type="Animation" id="Animation_das2l"]
+resource_name = "press"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(7.15625, 2.22656), Vector2(7.15625, 1.2832)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(969, 891.75), Vector2(969, 952.125)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Icon:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(953, 499), Vector2(953, 837)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0h5gt"]
+_data = {
+"RESET": SubResource("Animation_10lqo"),
+"press": SubResource("Animation_das2l")
+}
+
+[node name="PushButton" type="Node2D"]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_dlqby")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(969, 891.75)
+scale = Vector2(7.15625, 2.22656)
+texture = ExtResource("1_qygar")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(953, 499)
+texture = ExtResource("1_qygar")
+
+[node name="Control" type="Control" parent="."]
+z_index = -1
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_eqb88")
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5xmbr")
+stretch_mode = 1
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5qmsr")
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 216.0
+offset_top = 78.0
+offset_right = -216.0
+offset_bottom = -896.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 76
+show_percentage = false
+
+[node name="Button" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mvcga")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6f7uu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ugchs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0h5gt")
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Manager" type="Node" parent="."]
+script = ExtResource("3_no0cf")
