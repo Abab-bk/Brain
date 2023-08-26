@@ -7,7 +7,7 @@ extends Control
 var _game_world := preload("res://Scene/World.tscn")
 
 func _ready() -> void:
-    _start_game.pressed.connect(func():
-        get_tree().change_scene_to_packed(_game_world))
-    _quit.pressed.connect(func():
-        get_tree().quit())
+	_start_game.pressed.connect(func():
+		get_tree().change_scene_to_packed(_game_world))
+	_quit.pressed.connect(func():
+		get_tree().quit())

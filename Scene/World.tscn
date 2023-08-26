@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfpmkhp5yk5oe"]
+[gd_scene load_steps=11 format=3 uid="uid://cfpmkhp5yk5oe"]
 
 [ext_resource type="Script" path="res://Script/Game/World.gd" id="1_tgmst"]
 [ext_resource type="PackedScene" uid="uid://bpklbmnaoxp3q" path="res://Scene/Game/PushButton.tscn" id="1_xg2i7"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://co81n6q1mdwjv" path="res://Scene/Game/FlappyBrid.tscn" id="3_8s4u1"]
 [ext_resource type="Script" path="res://Script/UI/UI.gd" id="5_6u474"]
 [ext_resource type="Texture2D" uid="uid://5brrh320anir" path="res://Assets/Texture/Game/Background/Brown.png" id="6_q46e7"]
+[ext_resource type="PackedScene" uid="uid://bf2sy63u4nup" path="res://Scene/Game/Evade/evade.tscn" id="8_4geph"]
 [ext_resource type="AudioStream" uid="uid://mpkorrheumtx" path="res://Assets/Music/life_is_full_of_joy.wav" id="10_1eob6"]
 
 [node name="World" type="Control"]
@@ -94,6 +95,8 @@ layout_mode = 2
 clip_contents = true
 custom_minimum_size = Vector2(768, 432)
 layout_mode = 2
+
+[node name="Evade" parent="MarginContainer/CenterContainer/GridContainer/Control4" instance=ExtResource("8_4geph")]
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -128
