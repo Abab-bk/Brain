@@ -7,7 +7,7 @@ const SPEED = 300.0
 const GRAVITY = 500.0
 
 func _ready() -> void:
-    button.pressed.connect(self._jump)
+	button.pressed.connect(self._jump)
 
 func _jump() -> void:
-    linear_velocity = Vector2(0, -GRAVITY)
+	linear_velocity = Vector2(0, -GRAVITY)

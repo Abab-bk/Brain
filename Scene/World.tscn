@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfpmkhp5yk5oe"]
+[gd_scene load_steps=12 format=3 uid="uid://cfpmkhp5yk5oe"]
 
 [ext_resource type="Script" path="res://Script/Game/World.gd" id="1_tgmst"]
 [ext_resource type="PackedScene" uid="uid://bpklbmnaoxp3q" path="res://Scene/Game/PushButton.tscn" id="1_xg2i7"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://co81n6q1mdwjv" path="res://Scene/Game/FlappyBrid.tscn" id="3_8s4u1"]
 [ext_resource type="Script" path="res://Script/UI/UI.gd" id="5_6u474"]
 [ext_resource type="Texture2D" uid="uid://5brrh320anir" path="res://Assets/Texture/Game/Background/Brown.png" id="6_q46e7"]
+[ext_resource type="PackedScene" uid="uid://bhewr48gsl0w7" path="res://Scene/Game/ChangeColor/change_color.tscn" id="8_x88sk"]
 [ext_resource type="AudioStream" uid="uid://mpkorrheumtx" path="res://Assets/Music/life_is_full_of_joy.wav" id="10_1eob6"]
+[ext_resource type="Texture2D" uid="uid://ksb0481gx7dd" path="res://Assets/Texture/Game/Menu/Buttons/Settings.png" id="11_vfk6f"]
 
 [node name="World" type="Control"]
 layout_mode = 3
@@ -95,6 +97,8 @@ clip_contents = true
 custom_minimum_size = Vector2(768, 432)
 layout_mode = 2
 
+[node name="ChangeColor" parent="MarginContainer/CenterContainer/GridContainer/Control4" instance=ExtResource("8_x88sk")]
+
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -128
 
@@ -115,3 +119,15 @@ position_smoothing_enabled = true
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_1eob6")
 autoplay = true
+
+[node name="TextureButton" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1765.0
+offset_top = 12.0
+offset_right = 1871.0
+offset_bottom = 118.0
+texture_normal = ExtResource("11_vfk6f")
+stretch_mode = 0
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

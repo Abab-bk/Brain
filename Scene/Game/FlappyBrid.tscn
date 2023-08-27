@@ -123,7 +123,7 @@ scale = Vector2(0.4, 0.4)
 script = ExtResource("1_evxja")
 
 [node name="Player" type="RigidBody2D" parent="."]
-position = Vector2(175, 270)
+position = Vector2(560, 277.5)
 script = ExtResource("1_8vapm")
 
 [node name="Icon" type="AnimatedSprite2D" parent="Player"]

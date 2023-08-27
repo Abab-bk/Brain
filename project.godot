@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Master="*res://Script/Global/Master.gd"
+Setting="*res://Scene/Setting/setting.tscn"
 
 [display]
 
@@ -29,5 +30,5 @@ window/stretch/mode="canvas_items"
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
