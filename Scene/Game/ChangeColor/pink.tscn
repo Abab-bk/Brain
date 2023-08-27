@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds8lqrkp8x3mj"]
+
+[ext_resource type="TileSet" uid="uid://bm4xyfdejt80k" path="res://Assets/TileSet/Normal.tres" id="1_x52hu"]
+[ext_resource type="Script" path="res://Scene/Game/ChangeColor/queue.gd" id="2_8igoi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuki8"]
+size = Vector2(222, 47)
+
+[node name="pink" type="TileMap"]
+texture_filter = 1
+tile_set = ExtResource("1_x52hu")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 393216, 8, 1, 458752, 8, 2, 458752, 8, 3, 458752, 8, 4, 458752, 8, 5, 458752, 8, 6, 458752, 8, 7, 458752, 8, 8, 458752, 8, 9, 458752, 8, 10, 458752, 8, 11, 458752, 8, 65536, 393216, 9, 65547, 458752, 9, 65537, 458752, 9, 65538, 458752, 9, 65539, 458752, 9, 65540, 458752, 9, 65541, 458752, 9, 65542, 458752, 9, 65543, 458752, 9, 65544, 458752, 9, 65545, 458752, 9, 65546, 458752, 9, 131072, 393216, 10, 131083, 458752, 10, 131073, 458752, 10, 131074, 458752, 10, 131080, 458752, 10, 131081, 458752, 10, 131082, 458752, 10, 131079, 458752, 10, 131078, 458752, 10, 131077, 458752, 10, 131076, 458752, 10, 131075, 458752, 10, 13, 524288, 8, 12, 458752, 8, 65549, 524288, 9, 131085, 524288, 10, 65548, 458752, 9, 131084, 458752, 10)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(111.5, 24.5)
+scale = Vector2(11.05, 2.35)
+script = ExtResource("2_8igoi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(112, 23.5)
+shape = SubResource("RectangleShape2D_yuki8")
+
+[node name="PINK" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PINK"]
+position = Vector2(112, 23.5)
+shape = SubResource("RectangleShape2D_yuki8")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="VisibleOnScreenNotifier2D" method="_on_screen_exited"]

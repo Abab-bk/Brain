@@ -48,4 +48,4 @@ func knock() -> void:
 	tweens.tween_property(self, "position", Vector2(160,0)*direction, 0.5)
 	tweens.tween_property(self, "position",Vector2.ZERO, 0.5)
 	state = IDLE
-	manager.emit_signal("score_bonus",1)
+	manager.emit_signal("score_bonus",10)
