@@ -6,11 +6,11 @@ extends Node2D
 var interval:int = 4
 
 func _ready() -> void:
-	timer.timeout.connect(self.timeout)
-	timer.wait_time = interval
-	timer.start()
+    timer.timeout.connect(self.timeout)
+    timer.wait_time = interval
+    timer.start()
 
 func timeout() -> void:
-	var new_pipe = pipe.instantiate()
-	new_pipe.position = Vector2(1670, randi_range(202, 844))
-	add_child(new_pipe)
+    var new_pipe = pipe.instantiate()
+    new_pipe.position = Vector2(1670, randi_range(202, 844))
+    add_child(new_pipe)

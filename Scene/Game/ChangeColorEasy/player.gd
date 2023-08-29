@@ -7,10 +7,10 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var manager: Node = $"../Manager"
 @onready var texture_rect: TextureRect = $"../Control/TextureRect"
-signal double
 signal single
 var current_jump:String = "jump"
 var can_jump:bool = true
+
 var current_state = "PINK" :
     set(value):
         current_state = value
@@ -60,33 +60,20 @@ func _physics_process(delta: float) -> void:
             current_state = "YELLOW"
 func _ready() -> void:
     button.pressed.connect(func():
-        pressed_number += 1
+        emit_signal("single")
         )
     single.connect(func():
         if can_jump:
             number += 1
             velocity.y = JUMP_VELOCITY
         )
-    double.connect(func():
-        if current_state == "YELLOW":
-            current_state = "PINK"
-        else:
-            current_state = "YELLOW"
-        )
+
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+    current_state = area.name
+
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
     if body.name == "player":
         manager.emit_signal("game_over",$"..")
-
-func _on_area_2d_area_entered(area: Area2D) -> void:
-    if current_state != area.name:
-        manager.emit_signal("game_over",$"..")
-
-
-func _on_ok_timeout() -> void:
-    if pressed_number >= 2:
-        emit_signal("double")
-        pressed_number = 0
-    elif pressed_number <= 1:
-        emit_signal("single")
-        pressed_number = 0
