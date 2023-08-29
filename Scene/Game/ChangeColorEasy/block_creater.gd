@@ -3,8 +3,8 @@ var _yellow := preload("res://Scene/Game/ChangeColor/yellow.tscn")
 var _pink := preload("res://Scene/Game/ChangeColor/pink.tscn")
 @onready var _node_pink: Node2D = $pink
 @onready var _node_yellow: Node2D = $yellow
-@onready var manager: Node = $"../Manager"
 @onready var player: CharacterBody2D = $"../player"
+@onready var manager: Node = $"../Manager"
 
 @export var size : int
 func _ready() -> void:

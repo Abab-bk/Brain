@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 Master="*res://Script/Global/Master.gd"
 Setting="*res://Scene/Setting/setting.tscn"
+RankList="*res://Scene/rank_list.tscn"
+LogManager="*res://Scene/log_manager.tscn"
 
 [display]
 

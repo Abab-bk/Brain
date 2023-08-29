@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy4mjqf8ng733"]
+
+[ext_resource type="Script" path="res://Script/Item.gd" id="1_0m32j"]
+[ext_resource type="LabelSettings" uid="uid://d15iwulm6e4mf" path="res://Assets/LableSetting/Title.tres" id="1_7yow2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sw32g"]
+bg_color = Color(1, 0.827451, 0.784314, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Item" type="Panel"]
+custom_minimum_size = Vector2(590, 50)
+offset_right = 347.0
+offset_bottom = 46.0
+script = ExtResource("1_0m32j")
+
+[node name="score" type="Label" parent="."]
+layout_mode = 0
+offset_right = 590.0
+offset_bottom = 51.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_sw32g")
+text = "601分"
+label_settings = ExtResource("1_7yow2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="rank" type="Label" parent="."]
+layout_mode = 0
+offset_right = 590.0
+offset_bottom = 51.0
+text = "第1"
+label_settings = ExtResource("1_7yow2")
+vertical_alignment = 1

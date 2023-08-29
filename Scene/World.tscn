@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://co81n6q1mdwjv" path="res://Scene/Game/FlappyBrid.tscn" id="3_8s4u1"]
 [ext_resource type="Script" path="res://Script/UI/UI.gd" id="5_6u474"]
 [ext_resource type="Texture2D" uid="uid://5brrh320anir" path="res://Assets/Texture/Game/Background/Brown.png" id="6_q46e7"]
-[ext_resource type="PackedScene" uid="uid://bhewr48gsl0w7" path="res://Scene/Game/ChangeColor/change_color.tscn" id="8_x88sk"]
+[ext_resource type="PackedScene" uid="uid://cxeng3pv2ppoa" path="res://Scene/Game/SwitchParkour/switch_parkour.tscn" id="8_l756k"]
 [ext_resource type="AudioStream" uid="uid://mpkorrheumtx" path="res://Assets/Music/life_is_full_of_joy.wav" id="10_1eob6"]
 [ext_resource type="Texture2D" uid="uid://ksb0481gx7dd" path="res://Assets/Texture/Game/Menu/Buttons/Settings.png" id="11_vfk6f"]
 
@@ -97,7 +97,9 @@ clip_contents = true
 custom_minimum_size = Vector2(768, 432)
 layout_mode = 2
 
-[node name="ChangeColor" parent="MarginContainer/CenterContainer/GridContainer/Control4" instance=ExtResource("8_x88sk")]
+[node name="SubViewportContainer" parent="MarginContainer/CenterContainer/GridContainer/Control4" instance=ExtResource("8_l756k")]
+layout_mode = 0
+metadata/_edit_horizontal_guides_ = [200.0, 0.0]
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -128

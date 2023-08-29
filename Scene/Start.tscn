@@ -69,6 +69,11 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "设置"
 
+[node name="RankList" type="Button" parent="MarginContainer/Content/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "排行榜"
+
 [node name="Quit" type="Button" parent="MarginContainer/Content/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2

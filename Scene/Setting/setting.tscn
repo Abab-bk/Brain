@@ -96,7 +96,7 @@ _data = {
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
-layer = 50
+layer = 4
 visible = false
 
 [node name="Setting" type="Control" parent="."]
@@ -206,6 +206,38 @@ offset_right = 447.0
 offset_bottom = 463.0
 theme = ExtResource("5_88bbo")
 text = "应用"
+
+[node name="Panel2" type="Panel" parent="Setting/GridContainer"]
+custom_minimum_size = Vector2(486, 495)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o4cxr")
+
+[node name="Label" type="Label" parent="Setting/GridContainer/Panel2"]
+layout_mode = 0
+offset_right = 486.0
+offset_bottom = 57.0
+text = "全局设置"
+label_settings = SubResource("LabelSettings_15lod")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="save" type="Button" parent="Setting/GridContainer/Panel2"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 122.0
+offset_right = 442.0
+offset_bottom = 197.0
+theme = ExtResource("5_88bbo")
+text = "保存设置"
+
+[node name="load" type="Button" parent="Setting/GridContainer/Panel2"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 259.0
+offset_right = 442.0
+offset_bottom = 334.0
+theme = ExtResource("5_88bbo")
+text = "读取设置"
 
 [node name="TextureButton" type="TextureButton" parent="Setting"]
 texture_filter = 1
