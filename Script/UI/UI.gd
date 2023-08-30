@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var _point_node:Label = $UI/MarginContainer/Point
+@onready var _point_node:Label = %Point
 
 func _ready() -> void:
     Master.UI = self

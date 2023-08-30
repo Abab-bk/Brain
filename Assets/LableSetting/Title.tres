@@ -4,6 +4,9 @@
 
 [resource]
 font = ExtResource("1_thdj1")
-font_size = 32
-shadow_color = Color(0.976471, 0.321569, 0.113725, 1)
-shadow_offset = Vector2(0, 2)
+font_size = 40
+font_color = Color(0.85098, 0.85098, 0.85098, 1)
+outline_size = 5
+outline_color = Color(0.160784, 0.176471, 0.282353, 1)
+shadow_color = Color(0.533333, 0.552941, 0.501961, 1)
+shadow_offset = Vector2(0, 4)

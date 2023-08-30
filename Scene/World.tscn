@@ -7,10 +7,10 @@
 [ext_resource type="Theme" uid="uid://j2wqtopwadpw" path="res://Assets/Theme/Normal.tres" id="2_gf11l"]
 [ext_resource type="PackedScene" uid="uid://co81n6q1mdwjv" path="res://Scene/Game/FlappyBrid.tscn" id="3_8s4u1"]
 [ext_resource type="Script" path="res://Script/UI/UI.gd" id="5_6u474"]
+[ext_resource type="Texture2D" uid="uid://dl4vlheaf7gi" path="res://Assets/UI/Icons/SettingIcon.png" id="5_ic6pa"]
 [ext_resource type="Texture2D" uid="uid://5brrh320anir" path="res://Assets/Texture/Game/Background/Brown.png" id="6_q46e7"]
 [ext_resource type="PackedScene" uid="uid://bf2sy63u4nup" path="res://Scene/Game/Evade/evade.tscn" id="8_plffq"]
 [ext_resource type="AudioStream" uid="uid://mpkorrheumtx" path="res://Assets/Music/life_is_full_of_joy.wav" id="10_1eob6"]
-[ext_resource type="Texture2D" uid="uid://ksb0481gx7dd" path="res://Assets/Texture/Game/Menu/Buttons/Settings.png" id="11_vfk6f"]
 
 [node name="World" type="Control"]
 layout_mode = 3
@@ -43,15 +43,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 50
 
-[node name="Point" type="Label" parent="UI/UI/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/UI/MarginContainer"]
 layout_mode = 2
+
+[node name="Space" type="Control" parent="UI/UI/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(81, 0)
+layout_mode = 2
+
+[node name="Point" type="Label" parent="UI/UI/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 50
 text = "得分：888"
 label_settings = ExtResource("2_2s3g2")
 horizontal_alignment = 1
+
+[node name="PauseBtn" type="TextureButton" parent="UI/UI/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("5_ic6pa")
+stretch_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -120,14 +138,4 @@ position_smoothing_enabled = true
 stream = ExtResource("10_1eob6")
 autoplay = true
 
-[node name="TextureButton" type="TextureButton" parent="."]
-texture_filter = 1
-layout_mode = 0
-offset_left = 1765.0
-offset_top = 12.0
-offset_right = 1871.0
-offset_bottom = 118.0
-texture_normal = ExtResource("11_vfk6f")
-stretch_mode = 0
-
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="UI/UI/MarginContainer/HBoxContainer/PauseBtn" to="." method="_on_texture_button_pressed"]
