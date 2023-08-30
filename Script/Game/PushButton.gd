@@ -4,7 +4,7 @@ extends Node2D
 @onready var _animation:AnimationPlayer = $AnimationPlayer
 @onready var _progress:ProgressBar = %ProgressBar
 @onready var _timer:Timer = $Timer
-@onready var _button:Button = %Button
+@onready var _button: TouchScreenButton = %Button
 
 @export var bonus:int = 10
 
@@ -30,6 +30,7 @@ func _ready() -> void:
     _timer.start()
 
 func _button_press() -> void:
+    print("CAO")
     _hp += _dps_plus
     if not _progress.value == _progress.max_value:
         _manager.score_bonus.emit(bonus)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c7ndumnelkfmm"]
+[gd_scene load_steps=25 format=3 uid="uid://c7ndumnelkfmm"]
 
 [ext_resource type="Script" path="res://Script/Game/Chrome/Spikes.gd" id="1_hua0j"]
 [ext_resource type="Script" path="res://Script/Game/Chrome/Chrome.gd" id="1_p4won"]
@@ -108,15 +108,11 @@ border_width_right = 4
 border_width_bottom = 4
 border_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mvcga"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6f7uu"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugchs"]
-bg_color = Color(0.6, 0.6, 0.6, 0.0784314)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tiehj"]
 size = Vector2(110, 1095)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrs7l"]
+size = Vector2(1920, 1080)
 
 [node name="Chrome" type="Node2D"]
 scale = Vector2(0.4, 0.4)
@@ -186,19 +182,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5qmsr")
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="Control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_mvcga")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_6f7uu")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ugchs")
-metadata/_edit_use_anchors_ = true
-
 [node name="Edge" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Edge"]
@@ -215,3 +198,9 @@ layer_0/tile_data = PackedInt32Array(983040, 393216, 8, 983041, 458752, 8, 98304
 
 [node name="Manager" type="Node" parent="."]
 script = ExtResource("6_e7kcu")
+
+[node name="Button" type="TouchScreenButton" parent="."]
+unique_name_in_owner = true
+position = Vector2(960, 540)
+shape = SubResource("RectangleShape2D_mrs7l")
+passby_press = true

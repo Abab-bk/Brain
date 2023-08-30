@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://y2skxn4f8kaa"]
 
 [ext_resource type="TileSet" uid="uid://bm4xyfdejt80k" path="res://Assets/TileSet/Normal.tres" id="1_ntnls"]
-[ext_resource type="Script" path="res://Scene/Game/ChangeColor/queue.gd" id="2_rkifb"]
+[ext_resource type="Script" path="res://Script/Game/ChangeColor/queue.gd" id="2_mjsb0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fa7dc"]
 size = Vector2(239, 47)
@@ -14,7 +14,7 @@ layer_0/tile_data = PackedInt32Array(0, 393216, 4, 65536, 393216, 5, 131072, 393
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(120, 24.5)
 scale = Vector2(11.9, 2.35)
-script = ExtResource("2_rkifb")
+script = ExtResource("2_mjsb0")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2

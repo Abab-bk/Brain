@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bpklbmnaoxp3q"]
+[gd_scene load_steps=11 format=3 uid="uid://bpklbmnaoxp3q"]
 
 [ext_resource type="Script" path="res://Script/Game/PushButton.gd" id="1_dlqby"]
 [ext_resource type="Texture2D" uid="uid://cje7ej4vkvbrl" path="res://icon.svg" id="1_qygar"]
@@ -13,13 +13,6 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mvcga"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6f7uu"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugchs"]
-bg_color = Color(0.6, 0.6, 0.6, 0.0784314)
 
 [sub_resource type="Animation" id="Animation_10lqo"]
 length = 0.001
@@ -106,6 +99,9 @@ _data = {
 "press": SubResource("Animation_das2l")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmjeq"]
+size = Vector2(1920, 1080)
+
 [node name="PushButton" type="Node2D"]
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_dlqby")
@@ -166,18 +162,6 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 76
 show_percentage = false
 
-[node name="Button" type="Button" parent="Control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_mvcga")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_6f7uu")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ugchs")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_0h5gt")
@@ -187,3 +171,9 @@ libraries = {
 
 [node name="Manager" type="Node" parent="."]
 script = ExtResource("3_no0cf")
+
+[node name="Button" type="TouchScreenButton" parent="."]
+unique_name_in_owner = true
+position = Vector2(960, 540)
+shape = SubResource("RectangleShape2D_tmjeq")
+passby_press = true

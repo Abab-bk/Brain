@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://x3x8r53x78pl"]
+[gd_scene load_steps=24 format=3 uid="uid://x3x8r53x78pl"]
 
 [ext_resource type="Texture2D" uid="uid://clmjhusf88rbp" path="res://Assets/Texture/Game/Background/Pink.png" id="1_v2h76"]
 [ext_resource type="Texture2D" uid="uid://d4ju14p2jua4e" path="res://Assets/Texture/Game/Main Characters/Pink Man/Double Jump (32x32).png" id="2_c3xt7"]
@@ -20,13 +20,6 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bcbmy"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_310tn"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjywm"]
-bg_color = Color(0.6, 0.6, 0.6, 0.0784314)
 
 [sub_resource type="Animation" id="Animation_ouy6d"]
 length = 0.001
@@ -391,6 +384,9 @@ size = Vector2(22.4999, 29.375)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1nfa"]
 size = Vector2(1920, 59.9999)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wrmo"]
+size = Vector2(1920, 1080)
+
 [node name="ChangeColor" type="Node2D"]
 scale = Vector2(0.4, 0.4)
 
@@ -426,19 +422,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gt711")
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="Control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_bcbmy")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_310tn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_yjywm")
 metadata/_edit_use_anchors_ = true
 
 [node name="block_creater" type="Node2D" parent="."]
@@ -497,6 +480,12 @@ position = Vector2(892.5, 20)
 shape = SubResource("RectangleShape2D_j1nfa")
 
 [node name="Manager" parent="." instance=ExtResource("10_sdc21")]
+
+[node name="Button" type="TouchScreenButton" parent="."]
+unique_name_in_owner = true
+position = Vector2(960, 540)
+shape = SubResource("RectangleShape2D_1wrmo")
+passby_press = true
 
 [connection signal="timeout" from="block_creater/Timer" to="block_creater" method="_on_timer_timeout" flags=18]
 [connection signal="area_entered" from="player/Area2D" to="player" method="_on_area_2d_area_entered" flags=18]
