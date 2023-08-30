@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dfmpj8thxwqp"]
+[gd_scene load_steps=23 format=3 uid="uid://dfmpj8thxwqp"]
 
 [ext_resource type="Script" path="res://Scene/Game/DownAndDown/Player.gd" id="1_4qspn"]
 [ext_resource type="Texture2D" uid="uid://cwwytfgak2xub" path="res://Assets/Texture/Game/Background/Gray.png" id="1_8d8um"]
@@ -103,21 +103,17 @@ border_width_right = 4
 border_width_bottom = 4
 border_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vseoy"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ol4hq"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gnhg"]
-bg_color = Color(0.6, 0.6, 0.6, 0.0784314)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c45ku"]
 size = Vector2(2125, 212.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tar4o"]
+size = Vector2(1920, 1080)
 
 [node name="DownAndDown" type="Node2D"]
 scale = Vector2(0.4, 0.4)
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(890, 352.5)
+position = Vector2(890, 137.5)
 scale = Vector2(2, 2)
 script = ExtResource("1_4qspn")
 
@@ -167,30 +163,19 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_wn8wg")
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="Control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vseoy")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_ol4hq")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2gnhg")
-metadata/_edit_use_anchors_ = true
-
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Boards" type="Node2D" parent="."]
+position = Vector2(0, 137.5)
 script = ExtResource("4_hkpl4")
 
 [node name="BoardsTimer" type="Timer" parent="Boards"]
 
-[node name="OneWayBoard" parent="Boards" instance=ExtResource("7_ol3wo")]
-position = Vector2(892.5, 465)
+[node name="RigidBody2D" parent="Boards" instance=ExtResource("7_ol3wo")]
+position = Vector2(890, 287.5)
 
 [node name="Edge" type="Area2D" parent="."]
+position = Vector2(0, -75)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Edge"]
 position = Vector2(932.5, 1245)
@@ -198,3 +183,11 @@ shape = SubResource("RectangleShape2D_c45ku")
 
 [node name="Manager" type="Node" parent="."]
 script = ExtResource("4_bet5h")
+
+[node name="Button" type="TouchScreenButton" parent="."]
+unique_name_in_owner = true
+position = Vector2(960, 540)
+shape = SubResource("RectangleShape2D_tar4o")
+passby_press = true
+
+[connection signal="body_entered" from="Edge" to="Player" method="_on_edge_body_entered"]

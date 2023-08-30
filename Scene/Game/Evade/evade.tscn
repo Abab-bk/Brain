@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bf2sy63u4nup"]
+[gd_scene load_steps=35 format=3 uid="uid://bf2sy63u4nup"]
 
 [ext_resource type="Texture2D" uid="uid://cwwytfgak2xub" path="res://Assets/Texture/Game/Background/Gray.png" id="1_uv6hu"]
 [ext_resource type="TileSet" uid="uid://bm4xyfdejt80k" path="res://Assets/TileSet/Normal.tres" id="2_if1qy"]
@@ -19,13 +19,6 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_toml2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ruarg"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wiptf"]
-bg_color = Color(0.6, 0.6, 0.6, 0.0784314)
 
 [sub_resource type="Animation" id="Animation_h51cw"]
 length = 0.001
@@ -685,6 +678,9 @@ size = Vector2(23.125, 24.375)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8kwo"]
 size = Vector2(1915, 127.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrvsf"]
+size = Vector2(1920, 1080)
+
 [node name="Evade" type="Node2D"]
 scale = Vector2(0.4, 0.4)
 
@@ -720,19 +716,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jkpyq")
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="Control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_toml2")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_ruarg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_wiptf")
 metadata/_edit_use_anchors_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -815,5 +798,11 @@ shape = SubResource("RectangleShape2D_3gdhk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(957.5, 1023.75)
 shape = SubResource("RectangleShape2D_m8kwo")
+
+[node name="Button" type="TouchScreenButton" parent="."]
+unique_name_in_owner = true
+position = Vector2(960, 540)
+shape = SubResource("RectangleShape2D_hrvsf")
+passby_press = true
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]

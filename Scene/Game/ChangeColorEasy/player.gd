@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED :float = 300.0
 const JUMP_VELOCITY:float = -500.0
-@onready var button: Button = %Button
+@onready var button: TouchScreenButton = %Button
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var manager: Node = $"../Manager"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxeng3pv2ppoa"]
+[gd_scene load_steps=16 format=3 uid="uid://cxeng3pv2ppoa"]
 
 [ext_resource type="Script" path="res://Script/Game/SwitchParkour/player.gd" id="1_550lc"]
 [ext_resource type="Texture2D" uid="uid://but86ldq4uixf" path="res://Assets/Texture/Game/Main Characters/Virtual Guy/Run (32x32).png" id="2_7426s"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://Scene/Game/SwitchParkour/block_creater.gd" id="5_q2niq"]
 [ext_resource type="PackedScene" uid="uid://o1xtntqyrkuv" path="res://Scene/Game/SwitchParkour/block.tscn" id="5_uo5gf"]
 [ext_resource type="PackedScene" uid="uid://cm5416ykr3oaj" path="res://Scene/Manager.tscn" id="7_6u3n5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45mnj"]
+size = Vector2(1920, 1080)
 
 [sub_resource type="Animation" id="Animation_c3xm6"]
 length = 0.001
@@ -124,13 +127,6 @@ border_width_right = 4
 border_width_bottom = 4
 border_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_osxwm"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_edmr2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7j6li"]
-bg_color = Color(0.6, 0.6, 0.6, 0.0784314)
-
 [node name="SubViewportContainer" type="SubViewportContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
@@ -145,6 +141,15 @@ render_target_update_mode = 4
 [node name="SwitchParkour" type="Node2D" parent="SubViewport"]
 texture_filter = 1
 scale = Vector2(0.4, 0.4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport/SwitchParkour"]
+
+[node name="Button" type="TouchScreenButton" parent="SubViewport/SwitchParkour/CanvasLayer"]
+unique_name_in_owner = true
+position = Vector2(384, 216)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_45mnj")
+passby_press = true
 
 [node name="player" type="CharacterBody2D" parent="SubViewport/SwitchParkour"]
 position = Vector2(247, 654.5)
@@ -213,21 +218,6 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("4_c6klv")
 stretch_mode = 1
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="SubViewport/SwitchParkour/Control"]
-layer = 3
-
-[node name="Button" type="Button" parent="SubViewport/SwitchParkour/Control/CanvasLayer2"]
-unique_name_in_owner = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_osxwm")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_edmr2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7j6li")
-metadata/_edit_use_anchors_ = true
 
 [node name="block_creater" type="Node2D" parent="SubViewport/SwitchParkour"]
 position = Vector2(1010, 608)

@@ -5,7 +5,7 @@ var SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var gravity:int = 3500
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var button: Button = %Button
+@onready var button: TouchScreenButton = %Button
 @onready var manager: Node = $"../Manager"
 
 var anti_gravity:bool = false :
@@ -20,7 +20,7 @@ var anti_gravity:bool = false :
 func _physics_process(delta: float) -> void:
     if position.y < -2000 or position.y > 2000:
         position.y = 650
-        manager.emit_signal("game_over",$"../../..")
+        manager.emit_signal("game_over",$"..")
         
         
     if anti_gravity:

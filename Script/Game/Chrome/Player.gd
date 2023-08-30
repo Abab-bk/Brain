@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var button:Button = %Button
+@onready var button:TouchScreenButton = %Button
 
 const TYPE = 1
 const SPEED = 300.0

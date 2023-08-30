@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED :float = 300.0
 const JUMP_VELOCITY:float = -550.0
-@onready var button: Button = %Button
+@onready var button: TouchScreenButton = %Button
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var manager: Node = $"../Manager"
@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
         current_jump = "jump"
     move_and_slide()
 func _ready() -> void:
-    button.button_up.connect(func():
+    button.pressed.connect(func():
         if can_jump:
             number += 1
             velocity.y = JUMP_VELOCITY

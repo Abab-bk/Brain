@@ -1,23 +1,115 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfy8qtsvwdwem"]
+[gd_scene load_steps=6 format=3 uid="uid://dfy8qtsvwdwem"]
 
 [ext_resource type="Texture2D" uid="uid://dhs7hgpkhg2r0" path="res://Assets/Texture/Game/Terrain/Terrain (16x16).png" id="1_lb4kd"]
-[ext_resource type="Script" path="res://Script/Game/DownAndDown/OneWayBoard.gd" id="1_y8lpv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrhnj"]
-size = Vector2(47.6, 15.6)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gday5"]
+size = Vector2(240, 80)
 
-[node name="OneWayBoard" type="Node2D"]
-scale = Vector2(5, 5)
-script = ExtResource("1_y8lpv")
+[sub_resource type="Animation" id="Animation_um014"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_456cb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sdcwh"]
+_data = {
+"RESET": SubResource("Animation_456cb"),
+"die": SubResource("Animation_um014")
+}
+
+[node name="RigidBody2D" type="RigidBody2D"]
+mass = 0.1
+gravity_scale = 0.1
+max_contacts_reported = 3
+contact_monitor = true
 
 [node name="Texture" type="Sprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(5, 5)
 texture = ExtResource("1_lb4kd")
 region_enabled = true
 region_rect = Rect2(192, 0, 48, 16)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Texture"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Texture/StaticBody2D"]
-shape = SubResource("RectangleShape2D_hrhnj")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gday5")
 one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 5.0
+libraries = {
+"": SubResource("AnimationLibrary_sdcwh")
+}
