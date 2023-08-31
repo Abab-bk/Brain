@@ -1,7 +1,7 @@
 extends Control
 
 @onready var _camera_node:Camera2D = $Camera2D
-@onready var _texture_button: TextureButton = %PauseBtn
+@onready var _texture_button: TextureButton = $TextureButton
 
 func _ready() -> void:
     Master.camera_node = _camera_node

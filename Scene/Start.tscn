@@ -1,114 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://bmadhyq6kwqhy"]
+[gd_scene load_steps=5 format=3 uid="uid://bmadhyq6kwqhy"]
 
 [ext_resource type="Texture2D" uid="uid://bmyr31fu4qrlu" path="res://Assets/Texture/Game/Background/Green.png" id="1_155yt"]
 [ext_resource type="Theme" uid="uid://j2wqtopwadpw" path="res://Assets/Theme/Normal.tres" id="1_b3ksj"]
 [ext_resource type="Script" path="res://Script/UI/Start.gd" id="2_ixsck"]
-[ext_resource type="Shader" path="res://Assets/Shaders/Move.gdshader" id="3_kibo5"]
-[ext_resource type="Texture2D" uid="uid://86v3afi0vd32" path="res://Assets/UI/Textures/Logo.png" id="4_awagl"]
-[ext_resource type="TileSet" uid="uid://bm4xyfdejt80k" path="res://Assets/TileSet/Normal.tres" id="4_p32ni"]
-[ext_resource type="Texture2D" uid="uid://dbttgxloetjl0" path="res://Assets/Texture/Game/Main Characters/Ninja Frog/Idle (32x32).png" id="5_ivlqo"]
-[ext_resource type="Texture2D" uid="uid://hq4k0vbohkh3" path="res://Assets/UI/Buttons/StartGameBtn.png" id="5_ugq3b"]
-[ext_resource type="Texture2D" uid="uid://cukfgshnpo2a6" path="res://Assets/UI/Buttons/QuitBtn.png" id="6_0um5b"]
-[ext_resource type="Texture2D" uid="uid://bkpn7mdhic2up" path="res://Assets/UI/Buttons/SettingBtn.png" id="6_er5ee"]
-[ext_resource type="Texture2D" uid="uid://cctsult3p7dja" path="res://Assets/UI/Buttons/QuitBtnPressed.png" id="6_fbkng"]
-[ext_resource type="Texture2D" uid="uid://dlecctspyev5w" path="res://Assets/UI/Buttons/RankListBtn.png" id="7_8m6br"]
-[ext_resource type="Texture2D" uid="uid://bi7o43rwa2lpf" path="res://Assets/UI/Buttons/RankListBtnPressed.png" id="8_3s13a"]
-[ext_resource type="Texture2D" uid="uid://7dw55ldkui1o" path="res://Assets/UI/Buttons/SettingBtnPressed.png" id="10_av6je"]
-[ext_resource type="Texture2D" uid="uid://2w513fwwcr40" path="res://Assets/UI/Buttons/StartGameBtnPressed.png" id="12_wvsct"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_aq0la"]
-shader = ExtResource("3_kibo5")
-shader_parameter/direction = Vector2(8, 5)
-shader_parameter/speed = 0.1
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s0w2f"]
-atlas = ExtResource("5_ivlqo")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jwvkq"]
-atlas = ExtResource("5_ivlqo")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k3vm3"]
-atlas = ExtResource("5_ivlqo")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a3lje"]
-atlas = ExtResource("5_ivlqo")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pgywi"]
-atlas = ExtResource("5_ivlqo")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2hir8"]
-atlas = ExtResource("5_ivlqo")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h8twd"]
-atlas = ExtResource("5_ivlqo")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2kcxs"]
-atlas = ExtResource("5_ivlqo")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tdww4"]
-atlas = ExtResource("5_ivlqo")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6y5sh"]
-atlas = ExtResource("5_ivlqo")
-region = Rect2(288, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dk4rr"]
-atlas = ExtResource("5_ivlqo")
-region = Rect2(320, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qobyn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s0w2f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jwvkq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k3vm3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a3lje")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pgywi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2hir8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h8twd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2kcxs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tdww4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6y5sh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dk4rr")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 15.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pafl4"]
-radius = 32.5
-height = 90.0
+[ext_resource type="LabelSettings" uid="uid://d15iwulm6e4mf" path="res://Assets/LableSetting/Title.tres" id="3_osrty"]
 
 [node name="Start" type="Control"]
 layout_mode = 3
@@ -121,7 +16,6 @@ theme = ExtResource("1_b3ksj")
 script = ExtResource("2_ixsck")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_aq0la")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -130,31 +24,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_155yt")
 stretch_mode = 1
-
-[node name="Node2D" type="Node2D" parent="."]
-texture_filter = 1
-
-[node name="TileMap" type="TileMap" parent="Node2D"]
-scale = Vector2(5, 5)
-tile_set = ExtResource("4_p32ni")
-format = 2
-layer_0/tile_data = PackedInt32Array(720896, 393216, 0, 720897, 458752, 0, 720898, 458752, 0, 720899, 458752, 0, 720900, 458752, 0, 720901, 458752, 0, 720902, 458752, 0, 720903, 458752, 0, 720904, 458752, 0, 720905, 458752, 0, 720906, 458752, 0, 720907, 458752, 0, 720908, 458752, 0, 720909, 458752, 0, 720910, 458752, 0, 720911, 458752, 0, 720912, 458752, 0, 720913, 458752, 0, 720914, 458752, 0, 720915, 458752, 0, 720916, 458752, 0, 720917, 458752, 0, 720918, 458752, 0, 720919, 524288, 0, 786432, 393216, 1, 786433, 458752, 1, 786434, 458752, 1, 786435, 458752, 1, 786436, 458752, 1, 786437, 458752, 1, 786438, 458752, 1, 786439, 458752, 1, 786440, 458752, 1, 786441, 458752, 1, 786442, 458752, 1, 786443, 458752, 1, 786444, 458752, 1, 786445, 458752, 1, 786446, 458752, 1, 786447, 458752, 1, 786448, 458752, 1, 786449, 458752, 1, 786450, 458752, 1, 786451, 458752, 1, 786452, 458752, 1, 786453, 458752, 1, 786454, 458752, 1, 786455, 524288, 1, 851968, 393216, 2, 851969, 458752, 2, 851970, 458752, 2, 851971, 458752, 2, 851972, 458752, 2, 851973, 458752, 2, 851974, 458752, 2, 851975, 458752, 2, 851976, 458752, 2, 851977, 458752, 2, 851978, 458752, 2, 851979, 458752, 2, 851980, 458752, 2, 851981, 458752, 2, 851982, 458752, 2, 851983, 458752, 2, 851984, 458752, 2, 851985, 458752, 2, 851986, 458752, 2, 851987, 458752, 2, 851988, 458752, 2, 851989, 458752, 2, 851990, 458752, 2, 851991, 524288, 2)
-
-[node name="Player" type="CharacterBody2D" parent="Node2D"]
-position = Vector2(222.5, 827.5)
-
-[node name="Icon" type="AnimatedSprite2D" parent="Node2D/Player"]
-texture_filter = 1
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_qobyn")
-animation = &"Idle"
-autoplay = "Idle"
-frame = 2
-frame_progress = 0.0554233
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Player"]
-position = Vector2(2.5, 15)
-shape = SubResource("CapsuleShape2D_pafl4")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -165,59 +34,47 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 80
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
 
 [node name="Content" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 50
+alignment = 1
 
-[node name="Logo" type="TextureRect" parent="MarginContainer/Content"]
+[node name="Label" type="Label" parent="MarginContainer/Content"]
 layout_mode = 2
-texture = ExtResource("4_awagl")
-stretch_mode = 2
-
-[node name="Space" type="Control" parent="MarginContainer/Content"]
-layout_mode = 2
-size_flags_vertical = 3
+text = "三个王国Brain"
+label_settings = ExtResource("3_osrty")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Content"]
 layout_mode = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_right = 400
 
-[node name="Buttons" type="HBoxContainer" parent="MarginContainer/Content/MarginContainer"]
-texture_filter = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Content/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 10
-alignment = 2
+theme_override_constants/separation = 20
 
-[node name="Quit" type="TextureButton" parent="MarginContainer/Content/MarginContainer/Buttons"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 8
-texture_normal = ExtResource("6_0um5b")
-texture_pressed = ExtResource("6_fbkng")
-
-[node name="RankList" type="TextureButton" parent="MarginContainer/Content/MarginContainer/Buttons"]
-unique_name_in_owner = true
+[node name="StartGame" type="Button" parent="MarginContainer/Content/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-size_flags_vertical = 8
-texture_normal = ExtResource("7_8m6br")
-texture_pressed = ExtResource("8_3s13a")
+text = "开始游戏"
 
-[node name="Option" type="TextureButton" parent="MarginContainer/Content/MarginContainer/Buttons"]
-unique_name_in_owner = true
+[node name="Option" type="Button" parent="MarginContainer/Content/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-size_flags_vertical = 8
-texture_normal = ExtResource("6_er5ee")
-texture_pressed = ExtResource("10_av6je")
+text = "设置"
 
-[node name="StartGame" type="TextureButton" parent="MarginContainer/Content/MarginContainer/Buttons"]
-unique_name_in_owner = true
+[node name="RankList" type="Button" parent="MarginContainer/Content/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-size_flags_vertical = 8
-texture_normal = ExtResource("5_ugq3b")
-texture_pressed = ExtResource("12_wvsct")
+text = "排行榜"
+
+[node name="Quit" type="Button" parent="MarginContainer/Content/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "退出"

@@ -1,11 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://f3vr2jcglfu4"]
+[gd_scene load_steps=3 format=3 uid="uid://f3vr2jcglfu4"]
 
-[ext_resource type="Theme" uid="uid://j2wqtopwadpw" path="res://Assets/Theme/Normal.tres" id="1_p25rh"]
 [ext_resource type="Script" path="res://Script/UI/GameOver.gd" id="1_w1fdj"]
 [ext_resource type="Texture2D" uid="uid://cwwytfgak2xub" path="res://Assets/Texture/Game/Background/Gray.png" id="2_x6vcx"]
-[ext_resource type="Texture2D" uid="uid://phy7klupjq8s" path="res://Assets/UI/Textures/GameOver.png" id="3_fu7e3"]
-[ext_resource type="LabelSettings" uid="uid://dawl17wju4ib8" path="res://Assets/LableSetting/NormalWhite.tres" id="5_u7lsh"]
-[ext_resource type="Texture2D" uid="uid://js731nfm2s12" path="res://Assets/UI/Buttons/YellowButton.png" id="6_npd75"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -14,7 +10,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_p25rh")
 script = ExtResource("1_w1fdj")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -41,103 +36,27 @@ theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 30
 alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
-layout_mode = 2
-texture = ExtResource("3_fu7e3")
-stretch_mode = 3
-
-[node name="Text" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+[node name="Text" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
-text = "得分：888"
-label_settings = ExtResource("5_u7lsh")
+text = "你死了
+得分：888"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_right = 300
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="ReStart" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-texture = ExtResource("6_npd75")
-patch_margin_left = 12
-patch_margin_top = 10
-patch_margin_right = 12
-patch_margin_bottom = 17
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReStart"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_bottom = 15
-
-[node name="ReStartBtn" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReStart/MarginContainer"]
+[node name="ReStartBtn" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_type_variation = &"EmptyBtn"
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReStart/MarginContainer/ReStartBtn"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+theme_override_font_sizes/font_size = 101
 text = "重新开始"
-label_settings = ExtResource("5_u7lsh")
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="RankList" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-texture = ExtResource("6_npd75")
-patch_margin_left = 12
-patch_margin_top = 10
-patch_margin_right = 12
-patch_margin_bottom = 17
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/RankList"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_bottom = 15
-
-[node name="RankList" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/RankList/MarginContainer"]
+[node name="RankList" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
-theme_type_variation = &"EmptyBtn"
-theme_override_font_sizes/font_size = 50
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/RankList/MarginContainer/RankList"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "排行榜"
-label_settings = ExtResource("5_u7lsh")
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_font_sizes/font_size = 100
+text = "查看排行榜"

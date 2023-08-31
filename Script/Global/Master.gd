@@ -27,11 +27,14 @@ func get_last_score() -> int:
 
 func set_last_score(value:int) -> void:
     _last_score = value
+    if value == 0 or _score_list.has(value):
+        return
     _score_list.append(_last_score)
     if _score_list.size() > 20:
         _score_list.erase(_score_list.back())
     _score_list.sort()
     _score_list.reverse()
+    save_game()
     RankList.get_node("RankList").get_node("RankPanel").get_node("ScrollContainer").get_node("Ranker").emit_signal("changed")
 func score_to_zero() -> void:
     _total_score = 0
@@ -50,11 +53,9 @@ func save_game():
     game.volume = Setting.get_node("Setting").h_slider.value
     game.score = Master._score_list
     ResourceSaver.save(game,"user://game.tres")
-    LogManager.add_log("已保存游戏")
 func load_game():
     gamesaver = ResourceLoader.load("user://game.tres")
     if gamesaver == null:
-        LogManager.add_log("读取失败")
         return
     Master._score_list = gamesaver.score
     Setting.get_node("Setting").h_slider.value = gamesaver.volume

@@ -8,7 +8,6 @@ func _ready() -> void:
     score_bonus.connect(self._score_bonus)
 
 func _score_bonus(value:int) -> void:
-    return
     Master.bonus_points(value)
     Master.UI.update_ui()
 

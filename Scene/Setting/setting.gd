@@ -25,4 +25,7 @@ func _on_canvas_layer_visibility_changed() -> void:
     get_tree().paused = get_parent().visible
 func _ready() -> void:
     _save.pressed.connect(Callable(Master,"save_game"))
+    _save.pressed.connect(func():
+            LogManager.add_log("已保存游戏")
+    )
     _load.pressed.connect(Callable(Master,"load_game"))
