@@ -3,7 +3,7 @@ extends Control
 @onready var _start_game:TextureButton = %StartGame
 @onready var _option:TextureButton = %Option
 @onready var _quit:TextureButton = %Quit
-@onready var _rank_list: TextureButton = %RankList
+@onready var _rank_list:TextureButton = %RankList
 
 var _game_world := preload("res://Scene/World.tscn")
 

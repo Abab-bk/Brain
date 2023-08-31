@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://j2wqtopwadpw"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://j2wqtopwadpw"]
 
 [ext_resource type="FontFile" uid="uid://bg4drsabb58br" path="res://Assets/Fonts/SourceHanSansCN-Normal.otf" id="1_vw1tl"]
 
@@ -20,6 +20,8 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_deipo"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwm47"]
 bg_color = Color(1, 0.603922, 0.478431, 1)
 
@@ -37,5 +39,11 @@ Button/styles/focus = SubResource("StyleBoxEmpty_1lw3v")
 Button/styles/hover = SubResource("StyleBoxFlat_c1rtn")
 Button/styles/normal = SubResource("StyleBoxFlat_j5tjc")
 Button/styles/pressed = SubResource("StyleBoxFlat_j5tjc")
+EmptyBtn/base_type = &"Button"
+EmptyBtn/styles/disabled = SubResource("StyleBoxEmpty_deipo")
+EmptyBtn/styles/focus = SubResource("StyleBoxEmpty_deipo")
+EmptyBtn/styles/hover = SubResource("StyleBoxEmpty_deipo")
+EmptyBtn/styles/normal = SubResource("StyleBoxEmpty_deipo")
+EmptyBtn/styles/pressed = SubResource("StyleBoxEmpty_deipo")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_vwm47")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_lbb5i")
