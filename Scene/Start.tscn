@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://bmadhyq6kwqhy"]
+[gd_scene load_steps=30 format=3 uid="uid://bmadhyq6kwqhy"]
 
 [ext_resource type="Texture2D" uid="uid://bmyr31fu4qrlu" path="res://Assets/Texture/Game/Background/Green.png" id="1_155yt"]
 [ext_resource type="Theme" uid="uid://j2wqtopwadpw" path="res://Assets/Theme/Normal.tres" id="1_b3ksj"]
 [ext_resource type="Script" path="res://Script/UI/Start.gd" id="2_ixsck"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Move.gdshader" id="3_kibo5"]
 [ext_resource type="Texture2D" uid="uid://86v3afi0vd32" path="res://Assets/UI/Textures/Logo.png" id="4_awagl"]
 [ext_resource type="TileSet" uid="uid://bm4xyfdejt80k" path="res://Assets/TileSet/Normal.tres" id="4_p32ni"]
 [ext_resource type="Texture2D" uid="uid://dbttgxloetjl0" path="res://Assets/Texture/Game/Main Characters/Ninja Frog/Idle (32x32).png" id="5_ivlqo"]
@@ -15,42 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://7dw55ldkui1o" path="res://Assets/UI/Buttons/SettingBtnPressed.png" id="10_av6je"]
 [ext_resource type="Texture2D" uid="uid://2w513fwwcr40" path="res://Assets/UI/Buttons/StartGameBtnPressed.png" id="12_wvsct"]
 
-[sub_resource type="Animation" id="Animation_j0f4f"]
-resource_name = "BackgroundMove"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-798, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_vju1c"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yb6au"]
-_data = {
-"BackgroundMove": SubResource("Animation_j0f4f"),
-"RESET": SubResource("Animation_vju1c")
-}
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aq0la"]
+shader = ExtResource("3_kibo5")
+shader_parameter/direction = Vector2(8, 5)
+shader_parameter/speed = 0.1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s0w2f"]
 atlas = ExtResource("5_ivlqo")
@@ -152,22 +121,15 @@ theme = ExtResource("1_b3ksj")
 script = ExtResource("2_ixsck")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_aq0la")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 829.0
-offset_bottom = 632.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_155yt")
 stretch_mode = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
-autoplay = "BackgroundMove"
-libraries = {
-"": SubResource("AnimationLibrary_yb6au")
-}
 
 [node name="Node2D" type="Node2D" parent="."]
 texture_filter = 1
