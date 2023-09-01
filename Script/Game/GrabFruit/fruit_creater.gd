@@ -7,6 +7,7 @@ var fruit_scene := preload("res://Scene/Game/GrabFruit/fruit.tscn")
 @onready var timer: Timer = $Timer
 @onready var label: Label = $Text
 @onready var fruit: Node2D = $fruit
+@onready var manager: Node = $"../../Manager"
 
 @export var wait_time:int = 3
 

@@ -4,8 +4,8 @@ extends Node2D
 @onready var area_2d:Area2D = $Fr
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var collision_shape_2d: CollisionShape2D = $Fr/CollisionShape2D
-
 var manager:Manager
+
 var fruits_textures:Array = [
     preload("res://Assets/Texture/Game/Items/Fruits/Apple.png"),
     preload("res://Assets/Texture/Game/Items/Fruits/Bananas.png"),
@@ -16,10 +16,13 @@ var fruits_textures:Array = [
     preload("res://Assets/Texture/Game/Items/Fruits/Pineapple.png"),
     preload("res://Assets/Texture/Game/Items/Fruits/Strawberry.png")
 ]
+
 func _ready() -> void:
+    manager = get_parent().get_parent().manager
     randomize()
     sprite_2d.texture = fruits_textures[randi_range(0,7)]
     area_2d.area_entered.connect(Callable(self,"touch_fruit"))
+
 func touch_fruit(area:Area2D) -> void:
     if area.name == "Fr":
         return
@@ -31,4 +34,4 @@ func touch_fruit(area:Area2D) -> void:
     if area.is_in_group("player"):
         manager.emit_signal("score_bonus",10)
     elif area.is_in_group("enemy"):
-        manager.emit_signal("game_over",area.get_parent())
+        manager._game_over(get_parent().get_parent().grab)

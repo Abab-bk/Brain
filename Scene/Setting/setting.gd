@@ -12,6 +12,8 @@ func _on_button_pressed() -> void:
     AudioServer.set_bus_volume_db(0,h_slider.value)
 
 func _on_texture_button_pressed() -> void:
+    if get_tree().current_scene.name == "Start":
+        get_parent().visible = false
     hide()
     animation_player.play("new_animation")
     await animation_player.animation_finished
@@ -22,6 +24,8 @@ func _on_texture_button_pressed() -> void:
 
 
 func _on_canvas_layer_visibility_changed() -> void:
+    if get_tree().current_scene.name == "Start":
+        return
     get_tree().paused = get_parent().visible
 func _ready() -> void:
     _save.pressed.connect(Callable(Master,"save_game"))
