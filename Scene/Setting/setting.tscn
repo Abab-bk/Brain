@@ -1,11 +1,25 @@
-[gd_scene load_steps=14 format=3 uid="uid://dlvst3mwobkk0"]
+[gd_scene load_steps=18 format=3 uid="uid://dlvst3mwobkk0"]
 
-[ext_resource type="Texture2D" uid="uid://cbe54vv4qiu82" path="res://Assets/Texture/Game/Background/Purple.png" id="1_3bc31"]
 [ext_resource type="Script" path="res://Scene/Setting/setting.gd" id="1_5nqof"]
 [ext_resource type="LabelSettings" uid="uid://d15iwulm6e4mf" path="res://Assets/LableSetting/Title.tres" id="2_h5gg8"]
 [ext_resource type="FontFile" uid="uid://c81kkj37sh72r" path="res://Assets/Fonts/SourceHanSansCN-Bold.otf" id="3_g3ttj"]
+[ext_resource type="Texture2D" uid="uid://b0wnkbb5jhixg" path="res://Assets/UI/Textures/TitleBar.png" id="3_yivl2"]
+[ext_resource type="Texture2D" uid="uid://yvpxiy4j5xe4" path="res://Assets/UI/Buttons/CloseBtn.png" id="5_38kre"]
 [ext_resource type="Theme" uid="uid://j2wqtopwadpw" path="res://Assets/Theme/Normal.tres" id="5_88bbo"]
-[ext_resource type="Texture2D" uid="uid://ckkfgu0hj4pip" path="res://Assets/Texture/Game/Menu/Buttons/Close.png" id="6_o1vau"]
+[ext_resource type="Texture2D" uid="uid://df5abma6g5b3c" path="res://Assets/UI/Textures/Panel.png" id="6_obvg4"]
+[ext_resource type="Texture2D" uid="uid://js731nfm2s12" path="res://Assets/UI/Buttons/YellowButton.png" id="7_8spe5"]
+[ext_resource type="LabelSettings" uid="uid://dawl17wju4ib8" path="res://Assets/LableSetting/NormalWhite.tres" id="8_rs802"]
+[ext_resource type="FontFile" uid="uid://cc7hi664plagf" path="res://Assets/Fonts/SourceHanSansCN-Medium.otf" id="8_tgmcm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aeoyn"]
+font = ExtResource("8_tgmcm")
+font_size = 30
+font_color = Color(0.847656, 0.847656, 0.847656, 1)
+outline_size = 6
+outline_color = Color(0.160784, 0.176471, 0.282353, 1)
+shadow_size = 6
+shadow_color = Color(0.160784, 0.176471, 0.282353, 1)
+shadow_offset = Vector2(0, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4cxr"]
 bg_color = Color(0.239216, 0.239216, 0.239216, 0.52549)
@@ -59,39 +73,9 @@ tracks/1/keys = {
 "values": ["3"]
 }
 
-[sub_resource type="Animation" id="Animation_4jaso"]
-resource_name = "new_animation"
-length = 3.0
-step = 1.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Label:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Label:text")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": ["3", "2", "1", "继续！"]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_km724"]
 _data = {
-"RESET": SubResource("Animation_7tlln"),
-"new_animation": SubResource("Animation_4jaso")
+"RESET": SubResource("Animation_7tlln")
 }
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -107,42 +91,210 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("5_88bbo")
 script = ExtResource("1_5nqof")
 
-[node name="TextureRect" type="TextureRect" parent="Setting"]
+[node name="MarginContainer" type="MarginContainer" parent="Setting"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_3bc31")
-stretch_mode = 1
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
-[node name="Label" type="Label" parent="Setting"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Setting/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -40
+
+[node name="Title" type="HBoxContainer" parent="Setting/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Control2" type="Control" parent="Setting/MarginContainer/VBoxContainer/Title"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TitleBar" type="NinePatchRect" parent="Setting/MarginContainer/VBoxContainer/Title"]
+custom_minimum_size = Vector2(500, 120)
+layout_mode = 2
+texture = ExtResource("3_yivl2")
+patch_margin_left = 28
+patch_margin_top = 24
+patch_margin_right = 27
+patch_margin_bottom = 39
+
+[node name="MarginContainer" type="MarginContainer" parent="Setting/MarginContainer/VBoxContainer/Title/TitleBar"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 89.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 18
+
+[node name="Label" type="Label" parent="Setting/MarginContainer/VBoxContainer/Title/TitleBar/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 text = "设置"
 label_settings = ExtResource("2_h5gg8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="Setting"]
-layout_mode = 0
-offset_top = 89.0
-offset_right = 486.0
-offset_bottom = 1080.0
+[node name="Control" type="Control" parent="Setting/MarginContainer/VBoxContainer/Title"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureButton" type="TextureButton" parent="Setting/MarginContainer/VBoxContainer/Title"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 8
+texture_normal = ExtResource("5_38kre")
+texture_pressed = ExtResource("5_38kre")
+
+[node name="MarginContainer" type="MarginContainer" parent="Setting/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="Body" type="NinePatchRect" parent="Setting/MarginContainer/VBoxContainer/MarginContainer"]
+z_index = -1
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("6_obvg4")
+region_rect = Rect2(0, 0, 331, 188)
+patch_margin_left = 9
+patch_margin_top = 8
+patch_margin_right = 9
+patch_margin_bottom = 14
+
+[node name="MarginContainer" type="MarginContainer" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "开启声音"
+label_settings = ExtResource("8_rs802")
+
+[node name="Space" type="Control" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckBox" type="CheckBox" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "音量"
+label_settings = ExtResource("8_rs802")
+
+[node name="Space" type="Control" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSlider" type="HSlider" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Space2" type="Control" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "鸣谢：
+Penzilla：https://penzilla.itch.io/vector-icon-pack
+Matt Firth：https://penzilla.itch.io/vector-icon-pack
+game-icons.net"
+label_settings = SubResource("LabelSettings_aeoyn")
+horizontal_alignment = 1
+
+[node name="Space" type="Control" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReStart" type="NinePatchRect" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("7_8spe5")
+patch_margin_left = 12
+patch_margin_top = 10
+patch_margin_right = 12
+patch_margin_bottom = 17
+
+[node name="MarginContainer" type="MarginContainer" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/VBoxContainer/ReStart"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 15
+
+[node name="Apply" type="Button" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/VBoxContainer/ReStart/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"EmptyBtn"
+
+[node name="Label" type="Label" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/VBoxContainer/ReStart/MarginContainer/Apply"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "应用"
+label_settings = ExtResource("8_rs802")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer"]
+visible = false
+layout_mode = 2
 columns = 4
 
-[node name="Panel" type="Panel" parent="Setting/GridContainer"]
+[node name="Panel" type="Panel" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(486, 495)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_o4cxr")
 
-[node name="Label" type="Label" parent="Setting/GridContainer/Panel"]
+[node name="Label" type="Label" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/GridContainer/Panel"]
 layout_mode = 0
 offset_right = 486.0
 offset_bottom = 57.0
@@ -151,7 +303,7 @@ label_settings = SubResource("LabelSettings_15lod")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="Setting/GridContainer/Panel"]
+[node name="Label3" type="Label" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/GridContainer/Panel"]
 layout_mode = 0
 offset_left = 160.0
 offset_top = 291.0
@@ -161,7 +313,7 @@ text = "音量"
 label_settings = SubResource("LabelSettings_r6kt3")
 horizontal_alignment = 1
 
-[node name="CheckBox" type="CheckBox" parent="Setting/GridContainer/Panel"]
+[node name="CheckBox" type="CheckBox" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/GridContainer/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -178,7 +330,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Label2" type="Label" parent="Setting/GridContainer/Panel"]
+[node name="Label2" type="Label" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/GridContainer/Panel"]
 layout_mode = 0
 offset_left = 188.0
 offset_top = 122.0
@@ -187,7 +339,7 @@ offset_bottom = 184.0
 text = "开启声音"
 label_settings = SubResource("LabelSettings_r6kt3")
 
-[node name="HSlider" type="HSlider" parent="Setting/GridContainer/Panel"]
+[node name="HSlider" type="HSlider" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/GridContainer/Panel"]
 layout_mode = 2
 offset_left = 96.0
 offset_top = 259.0
@@ -198,7 +350,7 @@ min_value = -50.0
 max_value = 0.0
 step = 0.01
 
-[node name="Button" type="Button" parent="Setting/GridContainer/Panel"]
+[node name="Button" type="Button" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/GridContainer/Panel"]
 layout_mode = 0
 offset_left = 48.0
 offset_top = 388.0
@@ -207,12 +359,12 @@ offset_bottom = 463.0
 theme = ExtResource("5_88bbo")
 text = "应用"
 
-[node name="Panel2" type="Panel" parent="Setting/GridContainer"]
+[node name="Panel2" type="Panel" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(486, 495)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_o4cxr")
 
-[node name="Label" type="Label" parent="Setting/GridContainer/Panel2"]
+[node name="Label" type="Label" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/GridContainer/Panel2"]
 layout_mode = 0
 offset_right = 486.0
 offset_bottom = 57.0
@@ -221,7 +373,8 @@ label_settings = SubResource("LabelSettings_15lod")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="save" type="Button" parent="Setting/GridContainer/Panel2"]
+[node name="save" type="Button" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/GridContainer/Panel2"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 43.0
 offset_top = 122.0
@@ -230,7 +383,8 @@ offset_bottom = 197.0
 theme = ExtResource("5_88bbo")
 text = "保存设置"
 
-[node name="load" type="Button" parent="Setting/GridContainer/Panel2"]
+[node name="load" type="Button" parent="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/GridContainer/Panel2"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 43.0
 offset_top = 259.0
@@ -238,18 +392,6 @@ offset_right = 442.0
 offset_bottom = 334.0
 theme = ExtResource("5_88bbo")
 text = "读取设置"
-
-[node name="TextureButton" type="TextureButton" parent="Setting"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 1845.0
-offset_top = 19.0
-offset_right = 1899.0
-offset_bottom = 73.0
-texture_normal = ExtResource("6_o1vau")
-texture_pressed = ExtResource("6_o1vau")
-ignore_texture_size = true
-stretch_mode = 0
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -276,5 +418,5 @@ libraries = {
 }
 
 [connection signal="visibility_changed" from="." to="Setting" method="_on_canvas_layer_visibility_changed"]
-[connection signal="pressed" from="Setting/GridContainer/Panel/Button" to="Setting" method="_on_button_pressed"]
-[connection signal="pressed" from="Setting/TextureButton" to="Setting" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Setting/MarginContainer/VBoxContainer/Title/TextureButton" to="Setting" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Setting/MarginContainer/VBoxContainer/MarginContainer/Body/MarginContainer/GridContainer/Panel/Button" to="Setting" method="_on_button_pressed"]
