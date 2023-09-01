@@ -1,6 +1,9 @@
 extends CanvasLayer
+
 var Log := preload("res://Scene/log.tscn")
+
 @onready var logs: Control = $Logs
+
 @export var delay:float = 0.2
 
 func add_log(text:String) -> void:

@@ -1,0 +1,394 @@
+[gd_scene load_steps=25 format=3 uid="uid://sbtrwk3u03"]
+
+[ext_resource type="Script" path="res://Script/Game/GrabFruit/grab_fruit.gd" id="1_0x0g3"]
+[ext_resource type="Texture2D" uid="uid://cp608tchr8727" path="res://Assets/Texture/Game/Background/Yellow.png" id="1_4nshu"]
+[ext_resource type="Script" path="res://Script/Game/GrabFruit/player.gd" id="2_g78aj"]
+[ext_resource type="Texture2D" uid="uid://ygvilwxn1smb" path="res://Assets/Texture/Game/Main Characters/Pink Man/Idle (32x32).png" id="4_kq4qt"]
+[ext_resource type="Texture2D" uid="uid://but86ldq4uixf" path="res://Assets/Texture/Game/Main Characters/Virtual Guy/Run (32x32).png" id="5_ollxb"]
+[ext_resource type="Texture2D" uid="uid://cxkbwa43bgb1y" path="res://Assets/Texture/Game/Main Characters/Virtual Guy/Idle (32x32).png" id="5_tltxf"]
+[ext_resource type="Texture2D" uid="uid://chpslfmt6cc7y" path="res://Assets/Texture/Game/Main Characters/Pink Man/Run (32x32).png" id="5_v355v"]
+[ext_resource type="Script" path="res://Script/Game/GrabFruit/fruit_creater.gd" id="6_10jt5"]
+[ext_resource type="Script" path="res://Script/Game/GrabFruit/npc.gd" id="6_r8sfw"]
+[ext_resource type="FontFile" uid="uid://cc7hi664plagf" path="res://Assets/Fonts/SourceHanSansCN-Medium.otf" id="7_7og6p"]
+
+[sub_resource type="Animation" id="Animation_j5vtt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_kq4qt")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+
+[sub_resource type="Animation" id="Animation_rtwtk"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_kq4qt")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+
+[sub_resource type="Animation" id="Animation_1xmvm"]
+resource_name = "run"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_v355v")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vg8qq"]
+_data = {
+"RESET": SubResource("Animation_j5vtt"),
+"idle": SubResource("Animation_rtwtk"),
+"run": SubResource("Animation_1xmvm")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8qxi"]
+size = Vector2(15.625, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbsaq"]
+size = Vector2(20, 20.625)
+
+[sub_resource type="Animation" id="Animation_uiio2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_tltxf")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7wn5d"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_tltxf")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_yojpf"]
+resource_name = "run"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_ollxb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_igrym"]
+_data = {
+"RESET": SubResource("Animation_uiio2"),
+"idle": SubResource("Animation_7wn5d"),
+"run": SubResource("Animation_yojpf")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lpfd"]
+size = Vector2(16.25, 5.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05yae"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_um2oa"]
+font = ExtResource("7_7og6p")
+font_size = 100
+font_color = Color(0.847656, 0.847656, 0.847656, 1)
+outline_size = 6
+outline_color = Color(0.160784, 0.176471, 0.282353, 1)
+shadow_size = 6
+shadow_color = Color(0.160784, 0.176471, 0.282353, 1)
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rat5"]
+size = Vector2(768, 432)
+
+[node name="grab" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_0x0g3")
+
+[node name="grab_fruit" type="Node2D" parent="."]
+scale = Vector2(0.4, 0.4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="grab_fruit"]
+layer = -1
+scale = Vector2(0.4, 0.4)
+transform = Transform2D(0.4, 0, 0, 0.4, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="grab_fruit/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4nshu")
+stretch_mode = 1
+
+[node name="player" type="CharacterBody2D" parent="grab_fruit"]
+position = Vector2(400, 100)
+scale = Vector2(4, 4)
+script = ExtResource("2_g78aj")
+
+[node name="Sprite2D" type="Sprite2D" parent="grab_fruit/player"]
+texture_filter = 1
+texture = ExtResource("4_kq4qt")
+hframes = 11
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="grab_fruit/player"]
+autoplay = "idle"
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_vg8qq")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grab_fruit/player"]
+position = Vector2(0.312501, 14.375)
+shape = SubResource("RectangleShape2D_p8qxi")
+
+[node name="Area2D" type="Area2D" parent="grab_fruit/player" groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grab_fruit/player/Area2D"]
+position = Vector2(0, 1.5625)
+shape = SubResource("RectangleShape2D_hbsaq")
+
+[node name="npc" type="CharacterBody2D" parent="grab_fruit"]
+position = Vector2(1600, 100)
+scale = Vector2(4, 4)
+script = ExtResource("6_r8sfw")
+
+[node name="Sprite2D" type="Sprite2D" parent="grab_fruit/npc"]
+texture_filter = 1
+texture = ExtResource("5_tltxf")
+hframes = 11
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="grab_fruit/npc"]
+libraries = {
+"": SubResource("AnimationLibrary_igrym")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grab_fruit/npc"]
+position = Vector2(0, 13.4)
+shape = SubResource("RectangleShape2D_5lpfd")
+
+[node name="Area2D" type="Area2D" parent="grab_fruit/npc" groups=["enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grab_fruit/npc/Area2D"]
+shape = SubResource("RectangleShape2D_05yae")
+
+[node name="Timer" type="Timer" parent="grab_fruit/npc"]
+wait_time = 0.15
+
+[node name="fruit_creater" type="Node2D" parent="grab_fruit"]
+process_mode = 3
+script = ExtResource("6_10jt5")
+
+[node name="Text" type="Label" parent="grab_fruit/fruit_creater"]
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_um2oa")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="grab_fruit/fruit_creater"]
+wait_time = 3.0
+one_shot = true
+
+[node name="fruit" type="Node2D" parent="grab_fruit/fruit_creater"]
+position = Vector2(965, 1000)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="TouchScreenButton" parent="CanvasLayer"]
+unique_name_in_owner = true
+position = Vector2(383, 215)
+shape = SubResource("RectangleShape2D_5rat5")
+passby_press = true

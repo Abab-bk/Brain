@@ -4,6 +4,7 @@ extends Control
 @onready var _texture_button: TextureButton = %PauseBtn
 
 func _ready() -> void:
+    Master.used_levels.clear()
     Master.camera_node = _camera_node
     _texture_button.button_up.connect(func():
         Setting.visible = true

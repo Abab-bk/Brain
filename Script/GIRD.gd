@@ -1,14 +1,18 @@
 extends GridContainer
+
 var item := preload("res://Scene/Item.tscn")
+
 @onready var texture_button: TextureButton = $"../../../TextureButton"
 @onready var rank_list: Control = $"../.."
 
 signal changed
+
 func _ready() -> void:
     texture_button.pressed.connect(func():
         RankList.visible = false
         )
     changed.connect(Callable(self,"_change"))
+
 func _change() -> void:
     for nodes in self.get_children():
         nodes.queue_free()

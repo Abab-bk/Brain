@@ -1,9 +1,13 @@
 extends Node2D
+
 @onready var timer:Timer = $Timer
 @onready var player: CharacterBody2D = $"../player"
-@export var size : int = 500
-var block := preload("res://Scene/Game/SwitchParkour/block.tscn")
 @onready var manager: Node = $"../Manager"
+
+@export var size : int = 500
+
+var block := preload("res://Scene/Game/SwitchParkour/block.tscn")
+
 func _ready() -> void:
     timer.start()
     timer.timeout.connect(func():

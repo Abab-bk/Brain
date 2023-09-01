@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://dfmpj8thxwqp"]
 
-[ext_resource type="Script" path="res://Scene/Game/DownAndDown/Player.gd" id="1_4qspn"]
+[ext_resource type="Script" path="res://Script/Game/DownAndDown/Player.gd" id="1_4qspn"]
 [ext_resource type="Texture2D" uid="uid://cwwytfgak2xub" path="res://Assets/Texture/Game/Background/Gray.png" id="1_8d8um"]
 [ext_resource type="Texture2D" uid="uid://ygvilwxn1smb" path="res://Assets/Texture/Game/Main Characters/Pink Man/Idle (32x32).png" id="2_7c5wb"]
 [ext_resource type="Script" path="res://Script/Manager.gd" id="4_bet5h"]

@@ -1,5 +1,7 @@
 extends Area2D
+
 @export var direction:Vector2 = Vector2.RIGHT
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var manager: Node = $"../../Manager"
 @onready var player: CharacterBody2D = $"../../Player"
@@ -22,6 +24,8 @@ func _ready() -> void:
     if is_in_group("hazardous_materials"):
         randomize()
         direction = Vector2(randf_range(-1,1),randf_range(-1,1))
+    await get_tree().create_timer(15.0).timeout
+    queue_free()
 func change_state() -> void:
     match state:
         IDLE:

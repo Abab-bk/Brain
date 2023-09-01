@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Script/Game/Evade/Enemy.gd" id="4_fq888"]
 [ext_resource type="Texture2D" uid="uid://d2lihyvkavv1x" path="res://Assets/Texture/Game/Traps/Spike Head/Idle.png" id="4_x7lon"]
 [ext_resource type="Texture2D" uid="uid://pd8myvbps1uh" path="res://Assets/Texture/Game/Traps/Spike Head/Blink (54x52).png" id="5_ahql2"]
-[ext_resource type="Script" path="res://Scene/Game/Evade/Player.gd" id="7_mhrje"]
+[ext_resource type="Script" path="res://Script/Game/Evade/Player.gd" id="7_qlnb7"]
 [ext_resource type="Texture2D" uid="uid://dbttgxloetjl0" path="res://Assets/Texture/Game/Main Characters/Ninja Frog/Idle (32x32).png" id="8_0qbpy"]
 [ext_resource type="Texture2D" uid="uid://cngkdr5tv8hvo" path="res://Assets/Texture/Game/Main Characters/Ninja Frog/Jump (32x32).png" id="9_ir2oc"]
 [ext_resource type="Texture2D" uid="uid://bx3abdma52u4v" path="res://Assets/Texture/Game/Main Characters/Ninja Frog/Fall (32x32).png" id="10_cacf7"]
@@ -772,7 +772,7 @@ shape = SubResource("RectangleShape2D_n7wrw")
 texture_filter = 1
 position = Vector2(950, 705)
 scale = Vector2(4, 4)
-script = ExtResource("7_mhrje")
+script = ExtResource("7_qlnb7")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture = ExtResource("8_0qbpy")

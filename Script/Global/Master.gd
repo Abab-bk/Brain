@@ -1,5 +1,4 @@
 extends Node
-
 var _game_over_scene := preload("res://Scene/GameOver.tscn")
 var _total_score:int = 0
 var _last_score:int = 0
@@ -12,6 +11,17 @@ var _score_list:Array :
     get:
         return _score_list
 var gamesaver:GamerSaver = GamerSaver.new()
+var levels:Array = [
+    preload("res://Scene/Game/ChangeColor/change_color.tscn"),
+    preload("res://Scene/Game/Chrome.tscn"),
+    preload("res://Scene/Game/DownAndDown.tscn"),
+    preload("res://Scene/Game/FlappyBrid.tscn"),
+    preload("res://Scene/Game/PushButton.tscn"),
+    preload("res://Scene/Game/Evade/evade.tscn"),
+    preload("res://Scene/Game/SwitchParkour/switch_parkour.tscn"),
+    preload("res://Scene/Game/GrabFruit/grab_fruit.tscn")
+]
+var used_levels:Array
 func _ready() -> void:
     pass
     
@@ -43,6 +53,7 @@ func penalty_points(value:int) -> void:
     pass
 
 func game_over() -> void:
+    Master.used_levels.clear()
     get_tree().change_scene_to_packed(_game_over_scene)
 func save_game():
     var game = GamerSaver.new()
@@ -61,3 +72,12 @@ func load_game():
     Setting.get_node("Setting").check_box.button_pressed = gamesaver.mute
     Setting.get_node("Setting").button.emit_signal("pressed")
     LogManager.add_log("已读取游戏")
+func add_random_level(object:Node) -> void:
+    randomize()
+    var random_number:int = randi_range(0,(levels.size()-1))
+    var level = levels[random_number].instantiate()
+    if level.name in used_levels:
+        add_random_level(object)
+    else:
+        object.add_child(level)
+        used_levels.append(level.name)
