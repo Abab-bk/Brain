@@ -9,8 +9,8 @@ func _ready() -> void:
         get_tree().change_scene_to_packed(_world_scene)
         get_tree().paused = false
         )
-    %RankList.pressed.connect(func():
-        RankList.visible = true
+    %Ad.pressed.connect(func():
+        print("AD")
         )
     %BackBtn.pressed.connect(func():
         get_tree().change_scene_to_packed(_main_scene)

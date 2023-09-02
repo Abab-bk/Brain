@@ -10,27 +10,37 @@
 [node name="GameOver" type="Control"]
 process_mode = 3
 layout_mode = 3
-anchor_top = 0.181
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.819
-offset_top = -0.480011
-offset_bottom = 0.479919
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_p25rh")
 script = ExtResource("1_w1fdj")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 0.588235)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.164
+anchor_right = 1.0
+anchor_bottom = 0.836
+offset_top = -0.12001
+offset_bottom = 0.119995
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_x6vcx")
 stretch_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,20 +52,20 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 texture = ExtResource("3_fu7e3")
 stretch_mode = 3
 
-[node name="Text" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+[node name="Text" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
@@ -64,17 +74,17 @@ label_settings = ExtResource("5_u7lsh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_constants/margin_left = 300
 theme_override_constants/margin_right = 300
 
-[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="ReStart" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="ReStart" type="NinePatchRect" parent="TextureRect/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture = ExtResource("6_npd75")
@@ -83,7 +93,7 @@ patch_margin_top = 10
 patch_margin_right = 12
 patch_margin_bottom = 17
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/ReStart"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/ReStart"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,12 +102,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_bottom = 15
 
-[node name="ReStartBtn" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/ReStart/MarginContainer"]
+[node name="ReStartBtn" type="Button" parent="TextureRect/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/ReStart/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"EmptyBtn"
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/ReStart/MarginContainer/ReStartBtn"]
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/ReStart/MarginContainer/ReStartBtn"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -109,7 +119,7 @@ label_settings = ExtResource("5_u7lsh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Back" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Back" type="NinePatchRect" parent="TextureRect/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture = ExtResource("6_npd75")
@@ -118,7 +128,7 @@ patch_margin_top = 10
 patch_margin_right = 12
 patch_margin_bottom = 17
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Back"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Back"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -127,12 +137,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_bottom = 15
 
-[node name="BackBtn" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Back/MarginContainer"]
+[node name="BackBtn" type="Button" parent="TextureRect/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Back/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"EmptyBtn"
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Back/MarginContainer/BackBtn"]
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Back/MarginContainer/BackBtn"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -144,7 +154,7 @@ label_settings = ExtResource("5_u7lsh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RankList" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Ad" type="NinePatchRect" parent="TextureRect/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture = ExtResource("6_npd75")
@@ -153,7 +163,7 @@ patch_margin_top = 10
 patch_margin_right = 12
 patch_margin_bottom = 17
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/RankList"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Ad"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -162,20 +172,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_bottom = 15
 
-[node name="RankList" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/RankList/MarginContainer"]
+[node name="Ad" type="Button" parent="TextureRect/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Ad/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"EmptyBtn"
 theme_override_font_sizes/font_size = 50
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/RankList/MarginContainer/RankList"]
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Ad/MarginContainer/Ad"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "排行榜"
+text = "观看广告复活"
 label_settings = ExtResource("5_u7lsh")
 horizontal_alignment = 1
 vertical_alignment = 1

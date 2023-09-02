@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://j2wqtopwadpw"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://j2wqtopwadpw"]
 
 [ext_resource type="FontFile" uid="uid://bg4drsabb58br" path="res://Assets/Fonts/SourceHanSansCN-Normal.otf" id="1_vw1tl"]
 
@@ -20,6 +20,32 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1c0lv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbokb"]
+bg_color = Color(0.550781, 0.277344, 0.183594, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.488281, 0.464844, 0.425781, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufg8a"]
+bg_color = Color(0.996094, 0.710938, 0.441406, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.488281, 0.464844, 0.425781, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_deipo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwm47"]
@@ -39,6 +65,14 @@ Button/styles/focus = SubResource("StyleBoxEmpty_1lw3v")
 Button/styles/hover = SubResource("StyleBoxFlat_c1rtn")
 Button/styles/normal = SubResource("StyleBoxFlat_j5tjc")
 Button/styles/pressed = SubResource("StyleBoxFlat_j5tjc")
+CheckBox/icons/checked = null
+CheckBox/icons/checked_disabled = null
+CheckBox/icons/unchecked_disabled = null
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_1c0lv")
+CheckBox/styles/hover = SubResource("StyleBoxFlat_dbokb")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_ufg8a")
+CheckBox/styles/normal = SubResource("StyleBoxFlat_ufg8a")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_dbokb")
 EmptyBtn/base_type = &"Button"
 EmptyBtn/styles/disabled = SubResource("StyleBoxEmpty_deipo")
 EmptyBtn/styles/focus = SubResource("StyleBoxEmpty_deipo")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpklbmnaoxp3q"]
+[gd_scene load_steps=12 format=3 uid="uid://bpklbmnaoxp3q"]
 
 [ext_resource type="Script" path="res://Script/Game/PushButton.gd" id="1_dlqby"]
-[ext_resource type="Texture2D" uid="uid://cje7ej4vkvbrl" path="res://icon.svg" id="1_qygar"]
+[ext_resource type="Texture2D" uid="uid://js731nfm2s12" path="res://Assets/UI/Buttons/YellowButton.png" id="2_8da67"]
+[ext_resource type="Texture2D" uid="uid://b4fg7pr60jsfu" path="res://Assets/UI/Icons/SettingIconPressed.png" id="3_2c3y6"]
 [ext_resource type="Texture2D" uid="uid://cegg2q4upi161" path="res://Assets/Texture/Game/Background/Blue.png" id="3_5xmbr"]
 [ext_resource type="Theme" uid="uid://j2wqtopwadpw" path="res://Assets/Theme/Normal.tres" id="3_eqb88"]
 [ext_resource type="Script" path="res://Script/Manager.gd" id="3_no0cf"]
@@ -19,38 +20,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("Icon:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(7.15625, 2.22656)]
+"values": [Vector2(960, 558)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Sprite2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(969, 891.75)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Icon:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(953, 499)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_das2l"]
@@ -59,38 +48,26 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("Icon:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(7.15625, 2.22656), Vector2(7.15625, 1.2832)]
+"values": [Vector2(960, 558), Vector2(960, 780), Vector2(960, 780)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("Sprite2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(969, 891.75), Vector2(969, 952.125)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Icon:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(953, 499), Vector2(953, 837)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.52549, 0.52549, 0.52549, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0h5gt"]
@@ -107,13 +84,16 @@ scale = Vector2(0.4, 0.4)
 script = ExtResource("1_dlqby")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(969, 891.75)
-scale = Vector2(7.15625, 2.22656)
-texture = ExtResource("1_qygar")
+scale = Vector2(3, 3)
+texture = ExtResource("2_8da67")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(953, 499)
-texture = ExtResource("1_qygar")
+texture_filter = 1
+position = Vector2(960, 558)
+scale = Vector2(2, 2)
+texture = ExtResource("3_2c3y6")
 
 [node name="Control" type="Control" parent="."]
 z_index = -1

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dl4vlheaf7gi" path="res://Assets/UI/Icons/SettingIcon.png" id="5_ic6pa"]
 [ext_resource type="Texture2D" uid="uid://5brrh320anir" path="res://Assets/Texture/Game/Background/Brown.png" id="6_q46e7"]
 [ext_resource type="Script" path="res://Script/GameControl.gd" id="6_r7gpq"]
-[ext_resource type="AudioStream" uid="uid://mpkorrheumtx" path="res://Assets/Music/life_is_full_of_joy.wav" id="10_1eob6"]
+[ext_resource type="AudioStream" uid="uid://caah7611i2vwd" path="res://Assets/Music/Sweet70s.wav" id="8_e72ac"]
 
 [node name="World" type="Control"]
 layout_mode = 3
@@ -179,7 +179,7 @@ anchor_mode = 0
 position_smoothing_enabled = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_1eob6")
+stream = ExtResource("8_e72ac")
 autoplay = true
 
 [node name="GameOver" type="CanvasLayer" parent="."]

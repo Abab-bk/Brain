@@ -33,7 +33,7 @@ func _ready() -> void:
 
 func move_camera_to_node(node:Node) -> void:
     camera_node.zoom = Vector2(1.8, 1.8)
-    camera_node.global_position = node.global_position
+    camera_node.global_position = node.get_parent().get_parent().global_position
 
 func get_total_score() -> int:
     return _total_score

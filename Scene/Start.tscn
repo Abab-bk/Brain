@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bmadhyq6kwqhy"]
+[gd_scene load_steps=31 format=3 uid="uid://bmadhyq6kwqhy"]
 
 [ext_resource type="Texture2D" uid="uid://bmyr31fu4qrlu" path="res://Assets/Texture/Game/Background/Green.png" id="1_155yt"]
 [ext_resource type="Theme" uid="uid://j2wqtopwadpw" path="res://Assets/Theme/Normal.tres" id="1_b3ksj"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bi7o43rwa2lpf" path="res://Assets/UI/Buttons/RankListBtnPressed.png" id="8_3s13a"]
 [ext_resource type="Texture2D" uid="uid://7dw55ldkui1o" path="res://Assets/UI/Buttons/SettingBtnPressed.png" id="10_av6je"]
 [ext_resource type="Texture2D" uid="uid://2w513fwwcr40" path="res://Assets/UI/Buttons/StartGameBtnPressed.png" id="12_wvsct"]
+[ext_resource type="AudioStream" uid="uid://mpkorrheumtx" path="res://Assets/Music/life_is_full_of_joy.wav" id="16_v8kgv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aq0la"]
 shader = ExtResource("3_kibo5")
@@ -221,3 +222,7 @@ layout_mode = 2
 size_flags_vertical = 8
 texture_normal = ExtResource("5_ugq3b")
 texture_pressed = ExtResource("12_wvsct")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_v8kgv")
+autoplay = true
