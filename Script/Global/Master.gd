@@ -25,10 +25,11 @@ var levels:Array = [
     preload("res://Scene/Game/SwitchParkour/switch_parkour.tscn"),
 #    preload("res://Scene/Game/GrabFruit/grab_fruit.tscn")
 ]
-var used_levels:Array
+var used_levels:Array = ["SwitchParkour"]
 
 func _ready() -> void:
     Engine.time_scale = 0.8
+    process_mode = Node.PROCESS_MODE_ALWAYS
 
 func move_camera_to_node(node:Node) -> void:
     camera_node.zoom = Vector2(1.8, 1.8)
@@ -60,7 +61,7 @@ func penalty_points(value:int) -> void:
 
 func game_over() -> void:
     Master.used_levels.clear()
-    get_tree().change_scene_to_packed(_game_over_scene)
+    get_tree().current_scene.game_over.add_child(_game_over_scene.instantiate())
 
 func save_game():
     var game = GamerSaver.new()

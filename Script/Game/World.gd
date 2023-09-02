@@ -2,6 +2,7 @@ extends Control
 
 @onready var _camera_node:Camera2D = $Camera2D
 @onready var _texture_button:TextureButton = %PauseBtn
+@onready var game_over: CanvasLayer = $GameOver
 
 func _ready() -> void:
     Master.used_levels.clear()

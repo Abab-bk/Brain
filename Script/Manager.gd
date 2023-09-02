@@ -19,9 +19,6 @@ func _game_over(node:Node) -> void:
     
     Master.move_camera_to_node(node)
     await get_tree().create_timer(2.0).timeout
-    
     Master.game_over()
-    
-    get_tree().paused = false
     Master.save_game()
     Master.UI.hide()

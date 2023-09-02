@@ -94,11 +94,35 @@ custom_minimum_size = Vector2(768, 432)
 layout_mode = 2
 script = ExtResource("6_r7gpq")
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/CenterContainer/GridContainer/Control"]
+custom_minimum_size = Vector2(768, 432)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/CenterContainer/GridContainer/Control/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(768, 432)
+render_target_update_mode = 4
+
 [node name="Control2" type="Control" parent="MarginContainer/CenterContainer/GridContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(768, 432)
 layout_mode = 2
 script = ExtResource("6_r7gpq")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/CenterContainer/GridContainer/Control2"]
+custom_minimum_size = Vector2(768, 432)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/CenterContainer/GridContainer/Control2/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(768, 432)
+render_target_update_mode = 4
 
 [node name="Control3" type="Control" parent="MarginContainer/CenterContainer/GridContainer"]
 clip_contents = true
@@ -106,11 +130,35 @@ custom_minimum_size = Vector2(768, 432)
 layout_mode = 2
 script = ExtResource("6_r7gpq")
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/CenterContainer/GridContainer/Control3"]
+custom_minimum_size = Vector2(768, 432)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/CenterContainer/GridContainer/Control3/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(768, 432)
+render_target_update_mode = 4
+
 [node name="Control4" type="Control" parent="MarginContainer/CenterContainer/GridContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(768, 432)
 layout_mode = 2
 script = ExtResource("6_r7gpq")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/CenterContainer/GridContainer/Control4"]
+custom_minimum_size = Vector2(768, 432)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/CenterContainer/GridContainer/Control4/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(768, 432)
+render_target_update_mode = 4
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -128
@@ -133,3 +181,5 @@ position_smoothing_enabled = true
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_1eob6")
 autoplay = true
+
+[node name="GameOver" type="CanvasLayer" parent="."]
