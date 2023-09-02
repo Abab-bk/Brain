@@ -2,7 +2,7 @@ extends CanvasLayer
 
 var Log := preload("res://Scene/log.tscn")
 
-@onready var logs: Control = $Logs
+@onready var logs:Control = $Logs
 
 @export var delay:float = 0.2
 

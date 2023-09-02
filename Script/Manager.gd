@@ -23,4 +23,5 @@ func _game_over(node:Node) -> void:
     Master.game_over()
     
     get_tree().paused = false
+    Master.save_game()
     Master.UI.hide()

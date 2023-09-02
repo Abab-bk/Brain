@@ -1,5 +1,6 @@
-[gd_scene load_steps=35 format=3 uid="uid://bf2sy63u4nup"]
+[gd_scene load_steps=36 format=3 uid="uid://bf2sy63u4nup"]
 
+[ext_resource type="Script" path="res://Script/Game/Evade/Main.gd" id="1_12r2n"]
 [ext_resource type="Texture2D" uid="uid://cwwytfgak2xub" path="res://Assets/Texture/Game/Background/Gray.png" id="1_uv6hu"]
 [ext_resource type="TileSet" uid="uid://bm4xyfdejt80k" path="res://Assets/TileSet/Normal.tres" id="2_if1qy"]
 [ext_resource type="PackedScene" uid="uid://cm5416ykr3oaj" path="res://Scene/Manager.tscn" id="3_xxqqg"]
@@ -683,6 +684,7 @@ size = Vector2(1920, 1080)
 
 [node name="Evade" type="Node2D"]
 scale = Vector2(0.4, 0.4)
+script = ExtResource("1_12r2n")
 
 [node name="Control" type="Control" parent="."]
 z_index = -1
@@ -733,6 +735,7 @@ scale = Vector2(5, 5)
 
 [node name="Enemy" type="Area2D" parent="Enemy"]
 script = ExtResource("4_fq888")
+speed = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy/Enemy"]
 texture_filter = 1
@@ -753,6 +756,7 @@ scale = Vector2(5, 5)
 
 [node name="Enemy" type="Area2D" parent="Enemy2"]
 script = ExtResource("4_fq888")
+speed = 2.0
 direction = Vector2(-1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy2/Enemy"]

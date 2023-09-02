@@ -84,7 +84,7 @@ layer = 4
 visible = false
 
 [node name="Setting" type="Control" parent="."]
-modulate = Color(1, 1, 1, 0.941176)
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

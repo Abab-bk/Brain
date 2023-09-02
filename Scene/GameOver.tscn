@@ -9,9 +9,11 @@
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
-anchors_preset = 15
+anchor_top = 0.181
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.819
+offset_top = -0.480011
+offset_bottom = 0.479919
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_p25rh")
@@ -67,11 +69,11 @@ layout_mode = 2
 theme_override_constants/margin_left = 300
 theme_override_constants/margin_right = 300
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="ReStart" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="ReStart" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture = ExtResource("6_npd75")
@@ -80,7 +82,7 @@ patch_margin_top = 10
 patch_margin_right = 12
 patch_margin_bottom = 17
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReStart"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/ReStart"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -89,12 +91,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_bottom = 15
 
-[node name="ReStartBtn" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReStart/MarginContainer"]
+[node name="ReStartBtn" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/ReStart/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"EmptyBtn"
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ReStart/MarginContainer/ReStartBtn"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/ReStart/MarginContainer/ReStartBtn"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -106,7 +108,7 @@ label_settings = ExtResource("5_u7lsh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RankList" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="Back" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture = ExtResource("6_npd75")
@@ -115,7 +117,7 @@ patch_margin_top = 10
 patch_margin_right = 12
 patch_margin_bottom = 17
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/RankList"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Back"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -124,13 +126,48 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_bottom = 15
 
-[node name="RankList" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/RankList/MarginContainer"]
+[node name="BackBtn" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Back/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"EmptyBtn"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Back/MarginContainer/BackBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "返回主菜单"
+label_settings = ExtResource("5_u7lsh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RankList" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("6_npd75")
+patch_margin_left = 12
+patch_margin_top = 10
+patch_margin_right = 12
+patch_margin_bottom = 17
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/RankList"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 15
+
+[node name="RankList" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/RankList/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"EmptyBtn"
 theme_override_font_sizes/font_size = 50
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/RankList/MarginContainer/RankList"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/RankList/MarginContainer/RankList"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

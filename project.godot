@@ -13,7 +13,7 @@ config_version=5
 config/name="三个王国Brain"
 run/main_scene="res://Scene/Start.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://Icon.png"
 
 [autoload]
 
@@ -29,6 +29,7 @@ window/size/viewport_height=1080
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input_devices]
 

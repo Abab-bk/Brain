@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var gravity:int = 3500
+
 const JUMP_VELOCITY = -400.0
 const INIT_SCALE:Vector2 = Vector2(4,4)
 const FLIP_INIT_SCALE:Vector2 = Vector2(4,-4)
@@ -11,7 +13,6 @@ const INIT_POSITION_Y:int = 650
 @onready var manager: Node = $"../Manager"
 
 var SPEED = 300.0
-var gravity:int = 3500
 var anti_gravity:bool = false :
     set(value):
         anti_gravity = value

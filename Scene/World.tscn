@@ -133,5 +133,3 @@ position_smoothing_enabled = true
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_1eob6")
 autoplay = true
-
-[connection signal="pressed" from="UI/UI/MarginContainer/HBoxContainer/PauseBtn" to="." method="_on_texture_button_pressed"]

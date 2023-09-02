@@ -17,9 +17,9 @@ func _ready() -> void:
         get_tree().quit())
         
     _option.pressed.connect(func():
-        Setting.visible = true
+        Setting.show()
         )
         
     _rank_list.pressed.connect(func():
-        RankList.visible = true
+        RankList.show()
         )

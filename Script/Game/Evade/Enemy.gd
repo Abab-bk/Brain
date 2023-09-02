@@ -1,23 +1,26 @@
 extends Area2D
 
-@export var direction:Vector2 = Vector2.RIGHT
-
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var manager: Node = $"../../Manager"
-@onready var player: CharacterBody2D = $"../../Player"
-
 signal state_changed
+
+@export var speed:float = 0.5
+@export var direction:Vector2 = Vector2.RIGHT
+@onready var animation_player:AnimationPlayer = $AnimationPlayer
+@onready var manager:Node
+@onready var player:CharacterBody2D
+
 enum {
     IDLE,
     PREKNOCK,
     KNOCK,
 }
+
 var state:int = IDLE :
     set(value):
         state = value
         emit_signal("state_changed")
     get:
         return state
+
 func _ready() -> void:
     connect("state_changed",Callable(self,"change_state"))
     emit_signal("state_changed")
@@ -26,6 +29,7 @@ func _ready() -> void:
         direction = Vector2(randf_range(-1,1),randf_range(-1,1))
     await get_tree().create_timer(15.0).timeout
     queue_free()
+
 func change_state() -> void:
     match state:
         IDLE:
@@ -41,6 +45,7 @@ func idle() -> void:
     var random_number:float=randf_range(2.0,5.0)
     await get_tree().create_timer(random_number).timeout
     state = PREKNOCK
+
 func preknock() -> void:
     randomize()
     animation_player.play("eye")
@@ -48,11 +53,12 @@ func preknock() -> void:
     await animation_player.animation_finished
     await get_tree().create_timer(random_number).timeout
     state = KNOCK
+
 func knock() -> void:
     animation_player.play("knock")
     var tweens := create_tween()
     tweens.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
-    tweens.tween_property(self, "position", Vector2(160,160)*direction, 0.5)
+    tweens.tween_property(self, "position", Vector2(160,160)*direction, speed)
     tweens.tween_property(self, "position",Vector2.ZERO, 0.5)
     state = IDLE
     if not is_in_group("hazardous_materials"):
