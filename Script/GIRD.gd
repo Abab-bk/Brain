@@ -1,4 +1,4 @@
-extends GridContainer
+extends VBoxContainer
 
 var item := preload("res://Scene/Item.tscn")
 
@@ -19,8 +19,7 @@ func _change() -> void:
         
     for score in Master._score_list.size():
         var _item = item.instantiate()
-        _item.get_node("rank").text = "第%s"%str(score+1)
-        _item.get_node("score").text = "%s分"%Master._score_list[score]
+        _item.update_ui(score)
         add_child(_item)
 
 func _on_canvas_layer_visibility_changed() -> void:

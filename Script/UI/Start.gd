@@ -23,3 +23,8 @@ func _ready() -> void:
     _rank_list.pressed.connect(func():
         RankList.show()
         )
+    
+    await get_tree().process_frame
+    
+    $MarginContainer/Content/MarginContainer.scale = Vector2(2, 2)
+    

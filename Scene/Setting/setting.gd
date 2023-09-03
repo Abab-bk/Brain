@@ -28,6 +28,7 @@ func _ready() -> void:
     _save.pressed.connect(Callable(Master,"save_game"))
     _load.pressed.connect(Callable(Master,"load_game"))
     _back_btn.pressed.connect(func():
-        get_tree().change_scene_to_packed(_main_scene))
+        get_tree().change_scene_to_packed(_main_scene)
+        Setting.hide())
     check_box.pressed.connect(self.apply)
     h_slider.value_changed.connect(self.apply)

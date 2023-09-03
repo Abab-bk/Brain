@@ -11,16 +11,18 @@ config_version=5
 [application]
 
 config/name="三个王国Brain"
-run/main_scene="res://Scene/Start.tscn"
+run/main_scene="res://Scene/UI/BootSplash.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://Icon.png"
 
 [autoload]
 
+Tap="*res://Script/Global/Tap.gd"
 Master="*res://Script/Global/Master.gd"
 Setting="*res://Scene/Setting/setting.tscn"
 RankList="*res://Scene/rank_list.tscn"
 LogManager="*res://Scene/log_manager.tscn"
+Ad="*res://Script/Global/AD.gd"
 
 [display]
 
@@ -40,6 +42,7 @@ pointing/snap/snap_2d_vertices_to_pixel=true
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true

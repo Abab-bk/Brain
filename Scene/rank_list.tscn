@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bax6x6q7sukpa"]
+[gd_scene load_steps=7 format=3 uid="uid://bax6x6q7sukpa"]
 
 [ext_resource type="Texture2D" uid="uid://5brrh320anir" path="res://Assets/Texture/Game/Background/Brown.png" id="1_ijgoe"]
 [ext_resource type="LabelSettings" uid="uid://d15iwulm6e4mf" path="res://Assets/LableSetting/Title.tres" id="2_sy53j"]
 [ext_resource type="Script" path="res://Script/GIRD.gd" id="3_ny8cj"]
 [ext_resource type="Texture2D" uid="uid://yvpxiy4j5xe4" path="res://Assets/UI/Buttons/CloseBtn.png" id="4_njew6"]
+[ext_resource type="PackedScene" uid="uid://cy4mjqf8ng733" path="res://Scene/Item.tscn" id="5_obemi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0b7uy"]
 bg_color = Color(0.870588, 0.737255, 0.537255, 0.513726)
@@ -91,18 +92,34 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_0b7uy")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="RankList/MarginContainer/VBoxContainer/MarginContainer/RankPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="RankList/MarginContainer/VBoxContainer/MarginContainer/RankPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
 
-[node name="Ranker" type="GridContainer" parent="RankList/MarginContainer/VBoxContainer/MarginContainer/RankPanel/ScrollContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="RankList/MarginContainer/VBoxContainer/MarginContainer/RankPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Ranker" type="VBoxContainer" parent="RankList/MarginContainer/VBoxContainer/MarginContainer/RankPanel/MarginContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/v_separation = 5
+size_flags_horizontal = 3
 script = ExtResource("3_ny8cj")
 
-[connection signal="visibility_changed" from="." to="RankList/MarginContainer/VBoxContainer/MarginContainer/RankPanel/ScrollContainer/Ranker" method="_on_canvas_layer_visibility_changed"]
+[node name="Item" parent="RankList/MarginContainer/VBoxContainer/MarginContainer/RankPanel/MarginContainer/ScrollContainer/Ranker" instance=ExtResource("5_obemi")]
+layout_mode = 2
+
+[node name="Item2" parent="RankList/MarginContainer/VBoxContainer/MarginContainer/RankPanel/MarginContainer/ScrollContainer/Ranker" instance=ExtResource("5_obemi")]
+layout_mode = 2
+
+[node name="Item3" parent="RankList/MarginContainer/VBoxContainer/MarginContainer/RankPanel/MarginContainer/ScrollContainer/Ranker" instance=ExtResource("5_obemi")]
+layout_mode = 2
+
+[connection signal="visibility_changed" from="." to="RankList/MarginContainer/VBoxContainer/MarginContainer/RankPanel/MarginContainer/ScrollContainer/Ranker" method="_on_canvas_layer_visibility_changed"]

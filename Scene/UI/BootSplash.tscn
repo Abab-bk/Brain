@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://dc0gqp7rxon5y"]
+
+[ext_resource type="Texture2D" uid="uid://dkaaexuvcvr6h" path="res://Assets/UI/Textures/AcidWall.png" id="1_cdmg5"]
+[ext_resource type="Script" path="res://Script/UI/BootSplash.gd" id="1_gynav"]
+[ext_resource type="Texture2D" uid="uid://cegg2q4upi161" path="res://Assets/Texture/Game/Background/Blue.png" id="2_g1ktw"]
+[ext_resource type="Texture2D" uid="uid://86v3afi0vd32" path="res://Assets/UI/Textures/Logo.png" id="3_6jhfv"]
+[ext_resource type="Texture2D" uid="uid://r7yov1auwmsf" path="res://Assets/UI/Textures/Tap.png" id="4_5l5vg"]
+
+[sub_resource type="Animation" id="Animation_j240r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/AcidWall:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4gw05"]
+resource_name = "start"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/AcidWall:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ktcjj"]
+_data = {
+"RESET": SubResource("Animation_j240r"),
+"start": SubResource("Animation_4gw05")
+}
+
+[node name="BootSplash" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gynav")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AcidWall" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cdmg5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_ktcjj")
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_g1ktw")
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Logo" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_6jhfv")
+stretch_mode = 3
+
+[node name="Control" type="Control" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LoginBtn" type="TextureButton" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_5l5vg")
+texture_pressed = ExtResource("4_5l5vg")
+texture_hover = ExtResource("4_5l5vg")
+stretch_mode = 3
