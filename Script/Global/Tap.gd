@@ -18,6 +18,7 @@ func _init() -> void:
         print("无法初始化TapTapSDK")
 
 func _ready() -> void:
+    print(Engine.get_singleton_list())
     if tap != null:
         tap.logined.connect(func(): logined.emit())
         tap.loginNot.connect(func(): 
@@ -29,17 +30,13 @@ func _ready() -> void:
         tap.antiTimeout.connect(func(): anti_timeout.emit())
         tap.antiPass.connect(func(): anti_pass.emit())
 
-func login_out_() -> void:
+func login_out() -> void:
     if tap != null:
         tap.logOut()
 
-func is_logined() -> bool:
+func is_logined() -> void:
     if tap != null:
         tap.isLogined()
-        await tap.loginOut
-        return true
-    else:
-        return false
 
 func initTapAnti() -> void:
     if tap != null:

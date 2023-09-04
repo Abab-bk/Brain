@@ -26,5 +26,5 @@ func _ready() -> void:
     
     await get_tree().process_frame
     
-    $MarginContainer/Content/MarginContainer.scale = Vector2(2, 2)
+#    $MarginContainer/Content/MarginContainer.scale = Vector2(2, 2)
     

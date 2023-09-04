@@ -18,7 +18,7 @@ func _ready() -> void:
     _login_ui.show()
     
     # 检查有没有登录，如果登陆了tap发送Logined信号，没有登陆发送LoginNot
-    await Tap.is_logined()
+    Tap.is_logined()
 
 func _enter_game() -> void:
     get_tree().change_scene_to_packed(_main_scene)
@@ -28,10 +28,6 @@ func _login() -> void:
 
 func _login_ok() -> void:
     # 如果已经登陆了，检查防沉迷
-    _check_anti()
-
-func _check_anti() -> void:
-    # 初始化防沉迷
     Tap.initTapAnti()
     Tap.qucikAnti()
 

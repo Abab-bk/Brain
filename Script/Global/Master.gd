@@ -22,7 +22,7 @@ var levels:Array = [
     preload("res://Scene/Game/FlappyBrid.tscn"),
     preload("res://Scene/Game/PushButton.tscn"),
     preload("res://Scene/Game/Evade/evade.tscn"),
-    preload("res://Scene/Game/SwitchParkour/switch_parkour.tscn"),
+#    preload("res://Scene/Game/SwitchParkour/switch_parkour.tscn"),
 #    preload("res://Scene/Game/GrabFruit/grab_fruit.tscn")
 ]
 var used_levels:Array = ["SwitchParkour"]

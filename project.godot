@@ -33,9 +33,12 @@ window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[editor]
+
+naming/scene_name_casing=1
+
 [input_devices]
 
-pointing/emulate_touch_from_mouse=true
 pointing/snap/snap_2d_transforms_to_pixel=true
 pointing/snap/snap_2d_vertices_to_pixel=true
 
